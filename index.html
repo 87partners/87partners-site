@@ -1,600 +1,281 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>株式会社87パートナーズ | 87 Partners Inc.</title>
-  <meta name="description" content="株式会社87パートナーズ（87 Partners Inc.）は、経営支援・実行支援、ソフトウェア/AI開発、人材紹介を通じて、企業と個人の持続的成長を支援します。" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>株式会社８７パートナーズ | 87 Partners Inc.</title>
+    <style>
+        /* ベーススタイル：文字を大きく、読みやすく */
+        :root {
+            --primary-color: #0056b3; /* 信頼感のある青 */
+            --text-color: #333;
+            --bg-color: #fff;
+            --bg-light: #f4f7f6;
+        }
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            font-size: 18px; /* 基本文字サイズを大きめに */
+        }
+        
+        /* レイアウト共通 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        section {
+            padding: 80px 0;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
 
-  <meta property="og:title" content="株式会社87パートナーズ | 87 Partners Inc." />
-  <meta property="og:description" content="経営支援・実行支援、ソフトウェア/AI開発、人材紹介。" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.87partners.com/" />
-  <meta property="og:image" content="https://www.87partners.com/assets/og.png" />
+        /* ヘッダー：ロゴを強調 */
+        header {
+            padding: 30px 0;
+            background-color: var(--bg-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .logo-area h1 {
+            margin: 0;
+            font-size: 2.2rem; /* ロゴテキストを大きく */
+            font-weight: bold;
+            letter-spacing: 0.05em;
+        }
+        .logo-area span {
+            font-size: 1rem;
+            color: #666;
+            display: block;
+            margin-top: 5px;
+        }
 
-  <meta name="theme-color" content="#F7F8FB" />
-  <link rel="icon" href="/assets/favicon.png" />
+        /* メインビジュアル */
+        .hero {
+            background-color: var(--bg-light);
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h2 {
+            border: none;
+            font-size: 2.5rem; /* キャッチコピーを大きく */
+            line-height: 1.4;
+            margin-bottom: 30px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: opacity 0.3s;
+        }
+        .btn:hover { opacity: 0.9; }
 
-  <style>
-    :root{
-      --bg:#F7F8FB;
-      --panel:#FFFFFF;
-      --card:#FFFFFF;
-      --text:#0E1726;
-      --muted:#4A5568;
-      --line:rgba(15,23,42,.10);
-      --accent:#4F46E5;
-      --accent2:#06B6D4;
-      --shadow: 0 10px 30px rgba(15,23,42,.10);
-      --radius: 18px;
-      --max: 1120px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", "Segoe UI", Arial, sans-serif;
-      background:
-        radial-gradient(900px 500px at 75% 10%, rgba(79,70,229,.14), transparent 60%),
-        radial-gradient(900px 420px at 10% 20%, rgba(6,182,212,.10), transparent 55%),
-        radial-gradient(900px 500px at 85% 80%, rgba(79,70,229,.08), transparent 60%),
-        var(--bg);
-      color:var(--text);
-      line-height:1.75;
-    }
-    a{color:inherit; text-decoration:none}
-    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
-    .nav{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(247,248,251,.78);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:14px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      min-width:240px;
-    }
-    .logo{
-      width:40px; height:40px;
-      border-radius:12px;
-      background: linear-gradient(135deg, rgba(79,70,229,.95), rgba(6,182,212,.85));
-      box-shadow: var(--shadow);
-      display:grid; place-items:center;
-      overflow:hidden;
-      flex:0 0 auto;
-    }
-    .logo img{width:100%; height:100%; object-fit:contain; background:rgba(255,255,255,.15)}
-    .brand-title{display:flex; flex-direction:column; line-height:1.2}
-    .brand-title strong{font-size:14px; letter-spacing:.02em}
-    .brand-title span{font-size:12px; color:var(--muted)}
-    .menu{display:flex; align-items:center; gap:18px}
-    .menu a{
-      font-size:13px; color:var(--muted);
-      padding:8px 10px; border-radius:12px;
-      transition:.2s;
-    }
-    .menu a:hover{color:var(--text); background:rgba(15,23,42,.05)}
-    .cta{display:flex; align-items:center; gap:10px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 14px; border-radius:14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.65);
-      color:var(--text); font-size:13px;
-      transition:.2s;
-      white-space:nowrap;
-      cursor:pointer;
-    }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.92)}
-    .btn.primary{
-      border:none;
-      background: linear-gradient(135deg, rgba(79,70,229,.95), rgba(6,182,212,.85));
-      color:#061021;
-      font-weight:800;
-    }
-    .btn.primary:hover{filter:saturate(1.05)}
-    .hamburger{
-      display:none;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.75);
-      border-radius:14px;
-      padding:10px 12px;
-    }
-    .hamburger span{display:block; width:18px; height:2px; background:var(--text); margin:4px 0; opacity:.85}
-    .mobile{
-      display:none;
-      border-top:1px solid var(--line);
-      padding:10px 0 14px;
-    }
-    .mobile a{
-      display:block;
-      padding:10px 6px;
-      color:var(--muted);
-      border-radius: 12px;
-    }
-    .mobile a:hover{background: rgba(15,23,42,.05); color:var(--text)}
-    .mobile.show{display:block}
+        /* 事業内容：2x2グリッド */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2列 */
+            gap: 40px; /* 余白を広く */
+            margin-top: 20px;
+        }
+        .service-card {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
 
-    .hero{padding:56px 0 18px}
-    .hero-grid{
-      display:grid; grid-template-columns: 1.25fr .75fr;
-      gap:26px; align-items:stretch;
-    }
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:6px 10px; border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.65);
-      color:var(--muted);
-      font-size:12px;
-      width: fit-content;
-    }
-    .dot{width:8px; height:8px; border-radius:999px; background: var(--accent2); box-shadow: 0 0 0 6px rgba(6,182,212,.12)}
-    h1{
-      margin:14px 0 10px;
-      font-size: 44px;
-      line-height:1.15;
-      letter-spacing:-.02em;
-    }
-    .lead{color:var(--muted); font-size:15px; margin:0 0 18px}
-    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
-    .kpi{
-      margin-top:22px;
-      display:grid; grid-template-columns: repeat(3, 1fr);
-      gap:10px;
-    }
-    .kpi .item{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.70);
-      border-radius: 16px;
-      padding:12px 12px;
-    }
-    .kpi .num{font-weight:900; font-size:16px}
-    .kpi .lbl{color:var(--muted); font-size:12px; margin-top:2px}
-    .hero-card{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.78);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding:18px;
-      display:flex; flex-direction:column;
-      gap:14px;
-    }
-    .hero-card h3{margin:0; font-size:14px}
-    .hero-card p{margin:0; color:var(--muted); font-size:13px}
-    .mini{
-      border:1px solid var(--line);
-      border-radius: 16px;
-      padding:12px;
-      background: rgba(255,255,255,.80);
-    }
-    .mini strong{display:block; font-size:13px}
-    .mini span{display:block; color:var(--muted); font-size:12px}
-    .mini a{color:var(--text); text-decoration:underline; text-underline-offset: 3px}
+        /* 提供価値 */
+        .value-section {
+            background-color: var(--bg-light);
+        }
+        .value-content {
+            text-align: center;
+            font-size: 1.2rem;
+        }
 
-    section{padding:46px 0}
-    .section-title{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap:14px; margin-bottom:16px;
-    }
-    .section-title h2{margin:0; font-size:22px; letter-spacing:-.01em}
-    .section-title p{margin:0; color:var(--muted); font-size:13px}
-    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
-    .grid-2{display:grid; grid-template-columns: 1fr 1fr; gap:14px}
-    .card{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.80);
-      border-radius: var(--radius);
-      padding:18px;
-      box-shadow: 0 10px 26px rgba(15,23,42,.08);
-      min-height: 160px;
-    }
-    .card h3{margin:0 0 6px; font-size:15px}
-    .card p{margin:0; color:var(--muted); font-size:13px}
-    .pill{
-      display:inline-flex; align-items:center;
-      padding:4px 10px;
-      border-radius: 999px;
-      border:1px solid var(--line);
-      background: rgba(15,23,42,.03);
-      color:var(--muted);
-      font-size:11px;
-      margin-bottom:10px;
-      width:fit-content;
-    }
-    .list{margin:10px 0 0; padding:0 0 0 18px; color:var(--muted); font-size:13px}
-    .list li{margin:6px 0}
+        /* 会社概要 */
+        table.company-info {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.1rem;
+        }
+        table.company-info th, table.company-info td {
+            text-align: left;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        table.company-info th {
+            width: 30%;
+            background-color: #fafafa;
+            font-weight: normal;
+            color: #555;
+        }
 
-    .table{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      overflow:hidden;
-      background: rgba(255,255,255,.78);
-    }
-    .row{
-      display:grid;
-      grid-template-columns: 220px 1fr;
-      border-top:1px solid var(--line);
-    }
-    .row:first-child{border-top:none}
-    .th{
-      padding:14px 16px;
-      color:var(--muted);
-      background: rgba(15,23,42,.03);
-      font-size:13px;
-    }
-    .td{
-      padding:14px 16px;
-      font-size:13px;
-      color:var(--text);
-    }
+        /* お問い合わせ */
+        .contact-section {
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        .contact-box {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            display: inline-block;
+            text-align: left;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
 
-    .contact{
-      display:grid; grid-template-columns: 1fr 1fr;
-      gap:14px;
-      align-items:stretch;
-    }
-    .form{display:grid; gap:10px}
-    label{font-size:12px; color:var(--muted)}
-    input, textarea{
-      width:100%;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.88);
-      border-radius: 14px;
-      padding:10px 12px;
-      color:var(--text);
-      font-size:13px;
-      outline:none;
-    }
-    textarea{min-height:130px; resize:vertical}
-    input:focus, textarea:focus{border-color: rgba(79,70,229,.45)}
-    .hint{color:var(--muted); font-size:12px; margin-top:8px}
-
-    .footer{
-      padding:26px 0 40px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      font-size:12px;
-    }
-    .footer a{color:var(--muted); text-decoration:underline; text-underline-offset: 3px}
-
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns: 1fr}
-      .grid-3{grid-template-columns: 1fr}
-      .grid-2{grid-template-columns: 1fr}
-      .contact{grid-template-columns: 1fr}
-      h1{font-size:36px}
-      .menu{display:none}
-      .hamburger{display:inline-block}
-      .cta{gap:8px}
-      .brand{min-width:auto}
-    }
-    @media (max-width: 420px){
-      h1{font-size:30px}
-      .kpi{grid-template-columns: 1fr}
-    }
-
-    html{scroll-behavior:smooth}
-  </style>
+        /* スマホ対応（レスポンシブ） */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr; /* スマホでは1列に */
+            }
+            .hero h2 { font-size: 1.8rem; }
+            table.company-info th, table.company-info td {
+                display: block;
+                width: 100%;
+            }
+            table.company-info th {
+                background: none;
+                font-weight: bold;
+                padding-bottom: 5px;
+            }
+            table.company-info td {
+                padding-top: 0;
+                padding-bottom: 20px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <header class="nav">
+
+<header>
+    <div class="container logo-area">
+        <h1>株式会社８７パートナーズ</h1>
+        <span>87 Partners Inc.</span>
+    </div>
+</header>
+
+<section class="hero">
     <div class="container">
-      <div class="nav-inner">
-        <a class="brand" href="#top" aria-label="87 Partners Home">
-          <div class="logo" aria-hidden="true">
-            <img src="assets/logo.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='87'; this.parentElement.style.fontWeight='900'; this.parentElement.style.fontSize='14px';">
-          </div>
-          <div class="brand-title">
-            <strong>株式会社87パートナーズ</strong>
-            <span>87 Partners Inc.</span>
-          </div>
-        </a>
-
-        <nav class="menu" aria-label="Primary">
-          <a href="#services">事業</a>
-          <a href="#cases">提供価値</a>
-          <a href="#company">会社概要</a>
-          <a href="#contact">問い合わせ</a>
-        </nav>
-
-        <div class="cta">
-          <a class="btn" href="#contact">相談する</a>
-          <a class="btn primary" href="mailto:info@87partners.com?subject=お問い合わせ（87partners.com）">メール</a>
-          <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-controls="mobileMenu" aria-expanded="false">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </div>
-
-      <div class="mobile" id="mobileMenu">
-        <a href="#services">事業</a>
-        <a href="#cases">提供価値</a>
-        <a href="#company">会社概要</a>
-        <a href="#contact">問い合わせ</a>
-      </div>
+        <h2>企業と個人の「次の一手」を、<br>小さく速く、確実に。</h2>
+        <p>
+            経営支援・実行支援、ソフトウェア/AI開発などを通じて、<br>
+            お客様の事業の持続的な成長を支援します。
+        </p>
+        <a href="mailto:info@87partners.com" class="btn">お問い合わせ</a>
     </div>
-  </header>
+</section>
 
-  <main id="top">
-    <div class="container hero">
-      <div class="hero-grid">
-        <div>
-          <div class="badge"><span class="dot"></span> 経営支援 × 実行支援で、意思決定を前に進める</div>
-          <h1>企業と個人の「次の一手」を、<br>小さく速く、確実に。</h1>
-          <p class="lead">
-            株式会社87パートナーズ（87 Partners Inc.）は、経営支援・実行支援、ソフトウェア/AI開発、
-            人材紹介などを通じて、お客様の事業の持続的な成長を支援します。
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn primary" href="#contact">お問い合わせ</a>
-            <a class="btn" href="#services">事業内容を見る</a>
-            <a class="btn" href="#cases">提供価値</a>
-          </div>
-
-          <div class="kpi" aria-label="Key points">
-            <div class="item">
-              <div class="num">意思決定</div>
-              <div class="lbl">論点整理・判断基準・実行計画</div>
+<section id="services">
+    <div class="container">
+        <h2>事業内容</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>経営支援・コンサルティング</h3>
+                <p>経営課題の構造化、意思決定支援、KPI設計、実行計画（ロードマップ/ガント）まで一気通貫で支援します。</p>
             </div>
-            <div class="item">
-              <div class="num">実行支援</div>
-              <div class="lbl">PMO・規程整備・運用設計</div>
+            <div class="service-card">
+                <h3>実行支援（PMO）・規程整備</h3>
+                <p>会議体運用、ドキュメント整備、契約/規程（旅費・交際費・文書保存等）を「回る形」で構築します。</p>
             </div>
-            <div class="item">
-              <div class="num">開発</div>
-              <div class="lbl">小さく作って継続改善</div>
+            <div class="service-card">
+                <h3>ソフトウェア・AI開発</h3>
+                <p>業務自動化、AIエージェント、データ活用のPoCから運用まで。小さく作って継続改善する設計を重視します。</p>
             </div>
-          </div>
+            <div class="service-card">
+                <h3>伴走支援（顧問）</h3>
+                <p>継続支援で定例運用を回しつつ、重要局面はスポットで深く入る設計が可能です。</p>
+            </div>
         </div>
-
-        <aside class="hero-card">
-          <h3>Contact</h3>
-          <p>ご相談はメールまたはフォームから。原則1営業日以内の返信を目安にしています。</p>
-
-          <div class="mini">
-            <strong>Email</strong>
-            <span><a href="mailto:info@87partners.com">info@87partners.com</a></span>
-          </div>
-          <div class="mini">
-            <strong>Location</strong>
-            <span>〒251-0037 神奈川県藤沢市鵠沼海岸4丁目2番11号</span>
-          </div>
-          <div class="mini">
-            <strong>初回相談の進め方</strong>
-            <span>概要共有 → 論点整理 → 次アクション（見積/計画）</span>
-          </div>
-        </aside>
-      </div>
     </div>
+</section>
 
-    <section id="services">
-      <div class="container">
-        <div class="section-title">
-          <h2>事業内容</h2>
-          <p>必要に応じて組み合わせ、最短距離で成果に繋げます。</p>
+<section class="value-section">
+    <div class="container">
+        <h2>提供価値</h2>
+        <div class="value-content">
+            <p><strong>成果物ベースで前に進める</strong><br>
+            議事録、論点メモ、ロードマップなど、判断と実行の"足場"を残します。</p>
+            <br>
+            <p><strong>リテイナー（顧問）とスポットの両対応</strong><br>
+            定例運用を回しつつ、重要な局面では深く入る柔軟な支援が可能です。</p>
         </div>
+    </div>
+</section>
 
-        <div class="grid-3">
-          <div class="card">
-            <div class="pill">Consulting</div>
-            <h3>経営支援・コンサルティング</h3>
-            <p>経営課題の構造化、意思決定支援、KPI設計、実行計画（ロードマップ/ガント）まで一気通貫で支援します。</p>
-          </div>
+<section id="company">
+    <div class="container">
+        <h2>会社概要</h2>
+        <table class="company-info">
+            <tr>
+                <th>商号</th>
+                <td>株式会社８７パートナーズ（英語表記：87 Partners Inc.）</td>
+            </tr>
+            <tr>
+                <th>本店所在地</th>
+                <td>〒251-0037<br>神奈川県藤沢市鵠沼海岸4丁目2番11号</td>
+            </tr>
+            <tr>
+                <th>連絡先</th>
+                <td><a href="mailto:info@87partners.com">info@87partners.com</a></td>
+            </tr>
+            <tr>
+                <th>事業内容</th>
+                <td>経営支援・実行支援 / ソフトウェア・AI開発 / 人材紹介 ほか</td>
+            </tr>
+            <tr>
+                <th>受付時間</th>
+                <td>平日 9:00~18:00（メールは24時間受付）</td>
+            </tr>
+        </table>
+    </div>
+</section>
 
-          <div class="card">
-            <div class="pill">Governance</div>
-            <h3>実行支援（PMO）・規程整備</h3>
-            <p>会議体運用、ドキュメント整備、契約/規程（旅費・交際費・文書保存等）を「回る形」で構築します。</p>
-          </div>
-
-          <div class="card">
-            <div class="pill">Software / AI</div>
-            <h3>ソフトウェア・AI開発</h3>
-            <p>業務自動化、AIエージェント、データ活用のPoCから運用まで。小さく作って継続改善する設計を重視します。</p>
-          </div>
-
-          <div class="card">
-            <div class="pill">Talent</div>
-            <h3>人材紹介・採用支援</h3>
-            <p>経営/専門人材を中心に、要件定義・選考設計から定着まで。必要に応じてNDA締結に対応します。</p>
-          </div>
-
-          <div class="card">
-            <div class="pill">Operations</div>
-            <h3>ドキュメント/契約の標準化</h3>
-            <p>見積・発注・請求などの帳票テンプレ、NDA雛形、社内規程を整え、運用の再現性を高めます。</p>
-          </div>
-
-          <div class="card">
-            <div class="pill">Partnership</div>
-            <h3>伴走支援（顧問）</h3>
-            <p>継続支援で定例運用を回しつつ、重要局面はスポットで深く入る設計が可能です。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="cases">
-      <div class="container">
-        <div class="section-title">
-          <h2>提供価値</h2>
-          <p>「成果が残る」ための設計と、実装スピードを両立します。</p>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <div class="pill">Deliverables</div>
-            <h3>成果物ベースで前に進める</h3>
-            <p>議事録、論点メモ、ロードマップ、規程、テンプレ、提案書、合意文書など、判断と実行の“足場”を残します。</p>
-            <ul class="list">
-              <li>曖昧な「相談」→ 実行可能なタスクへ分解</li>
-              <li>担当・期限・判断基準を明確化</li>
-              <li>情報管理（NDA運用/文書保存）の整備</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="pill">How we work</div>
-            <h3>リテイナー（顧問）とスポットの両対応</h3>
-            <p>継続支援（リテイナー）で定例運用を回しつつ、重要局面はスポットで深く入る設計が可能です。</p>
-            <ul class="list">
-              <li>顧問：定例/相談対応/レビュー</li>
-              <li>スポット：計画策定/規程整備/PMO</li>
-              <li>出張：実費精算（規程に基づく）</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="company">
-      <div class="container">
-        <div class="section-title">
-          <h2>会社概要</h2>
-          <p>登記・許認可等に合わせて適宜更新してください。</p>
-        </div>
-
-        <div class="table" role="table" aria-label="Company profile">
-          <div class="row" role="row">
-            <div class="th" role="columnheader">商号</div>
-            <div class="td" role="cell">株式会社87パートナーズ（英語表記：87 Partners Inc.）</div>
-          </div>
-          <div class="row" role="row">
-            <div class="th" role="columnheader">本店所在地</div>
-            <div class="td" role="cell">〒251-0037 神奈川県藤沢市鵠沼海岸4丁目2番11号</div>
-          </div>
-          <div class="row" role="row">
-            <div class="th" role="columnheader">連絡先</div>
-            <div class="td" role="cell">
-              Email：<a href="mailto:info@87partners.com">info@87partners.com</a>
+<section class="contact-section">
+    <div class="container">
+        <h2>お問い合わせ</h2>
+        <div class="contact-box">
+            <p>ご相談はメールにて承っております。原則1営業日以内の返信を目安にしています。<br>
+            まずは概要だけでも構いません。お気軽にご連絡ください。</p>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="mailto:info@87partners.com" class="btn">メールを作成する</a>
             </div>
-          </div>
-          <div class="row" role="row">
-            <div class="th" role="columnheader">事業内容</div>
-            <div class="td" role="cell">経営支援・実行支援／ソフトウェア・AI開発／人材紹介 ほか</div>
-          </div>
-          <div class="row" role="row">
-            <div class="th" role="columnheader">受付時間</div>
-            <div class="td" role="cell">平日 9:00–18:00（メールは24時間受付）</div>
-          </div>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
 
-    <section id="contact">
-      <div class="container">
-        <div class="section-title">
-          <h2>お問い合わせ</h2>
-          <p>フォームは「メール作成（mailto）」方式です。将来はフォームサービスに差し替え可能です。</p>
-        </div>
+<footer>
+    <div class="container" style="text-align: center; padding: 20px; font-size: 0.9rem; color: #999;">
+        &copy; 2026 87 Partners Inc. All Rights Reserved.
+    </div>
+</footer>
 
-        <div class="contact">
-          <div class="card">
-            <div class="pill">Form</div>
-            <h3 style="margin-top:0">お問い合わせフォーム</h3>
-
-            <form class="form" id="contactForm">
-              <div>
-                <label for="name">お名前</label>
-                <input id="name" name="name" autocomplete="name" placeholder="例：山田 太郎" required />
-              </div>
-              <div>
-                <label for="companyName">会社名（任意）</label>
-                <input id="companyName" name="companyName" autocomplete="organization" placeholder="例：○○株式会社" />
-              </div>
-              <div>
-                <label for="email">メールアドレス</label>
-                <input id="email" name="email" type="email" autocomplete="email" placeholder="例：example@example.com" required />
-              </div>
-              <div>
-                <label for="message">お問い合わせ内容</label>
-                <textarea id="message" name="message" placeholder="ご相談内容・背景・ご希望の進め方など" required></textarea>
-              </div>
-
-              <button class="btn primary" type="submit">メールを作成</button>
-              <div class="hint">
-                ※ 機密情報は、必要に応じてNDA締結後に共有してください。
-              </div>
-            </form>
-          </div>
-
-          <div class="card">
-            <div class="pill">Direct</div>
-            <h3 style="margin-top:0">直接連絡</h3>
-            <p style="color:var(--muted); font-size:13px; margin-top:0">
-              まずは概要だけでも構いません。状況とゴールを教えてください。
-            </p>
-
-            <div class="mini">
-              <strong>Email</strong>
-              <span><a href="mailto:info@87partners.com">info@87partners.com</a></span>
-            </div>
-            <div class="mini">
-              <strong>対応範囲</strong>
-              <span>全国（オンライン）／必要に応じて出張対応</span>
-            </div>
-
-            <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="btn" href="#services">事業を見る</a>
-              <a class="btn" href="#company">会社概要</a>
-              <a class="btn primary" href="mailto:info@87partners.com?subject=お問い合わせ（87partners.com）">メールする</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container" style="display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;">
-        <div>© <span id="year"></span> 株式会社87パートナーズ / 87 Partners Inc.</div>
-        <div><a href="#top">トップへ</a></div>
-      </div>
-    </footer>
-  </main>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const burger = document.getElementById("hamburger");
-    const mobile = document.getElementById("mobileMenu");
-    if (burger) {
-      burger.addEventListener("click", () => {
-        const open = mobile.classList.toggle("show");
-        burger.setAttribute("aria-expanded", String(open));
-      });
-    }
-    if (mobile) {
-      mobile.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
-        mobile.classList.remove("show");
-        burger?.setAttribute("aria-expanded", "false");
-      }));
-    }
-
-    const form = document.getElementById("contactForm");
-    form?.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = document.getElementById("name").value.trim();
-      const company = document.getElementById("companyName").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const msg = document.getElementById("message").value.trim();
-
-      const subject = encodeURIComponent("お問い合わせ（87partners.com）");
-      const body = encodeURIComponent(
-        `お名前：${name}\n` +
-        `会社名：${company || "（未記入）"}\n` +
-        `メール：${email}\n\n` +
-        `【お問い合わせ内容】\n${msg}\n`
-      );
-      window.location.href = `mailto:info@87partners.com?subject=${subject}&body=${body}`;
-    });
-  </script>
 </body>
 </html>
