@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>株式会社８７パートナーズ | 87 Partners Inc.</title>
     <style>
-        /* ベーススタイル：文字サイズを全体的に大きく */
+        /* ベーススタイル */
         :root {
             --primary-color: #0056b3;
             --text-color: #333;
@@ -40,7 +40,7 @@
             letter-spacing: 0.05em;
         }
 
-        /* ヘッダー：ロゴ画像対応 */
+        /* ヘッダー */
         header {
             padding: 40px 0;
             background-color: var(--bg-color);
@@ -83,6 +83,8 @@
             border-radius: 6px;
             transition: opacity 0.3s;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            cursor: pointer;
+            border: none;
         }
         .btn:hover { opacity: 0.9; transform: translateY(-1px); }
 
@@ -162,7 +164,7 @@
             font-weight: normal;
         }
 
-        /* お問い合わせ */
+        /* お問い合わせフォーム（CSS追加） */
         .contact-section {
             text-align: center;
             background-color: #f9f9f9;
@@ -175,10 +177,34 @@
             margin: 0 auto;
             max-width: 700px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            text-align: left; /* 入力欄は左揃え */
         }
-        .contact-box p {
-            margin-bottom: 50px;
-            font-size: 1.2rem;
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box; /* パディングを含めた幅計算 */
+            font-family: inherit;
+        }
+        .form-group textarea {
+            height: 180px;
+            resize: vertical;
+        }
+        .submit-area {
+            text-align: center;
+            margin-top: 40px;
         }
 
         /* フッター */
@@ -224,7 +250,7 @@
             ソフトウェア/AI開発などを通じて、<br>
             お客様の事業の持続的な成長を支援します。
         </p>
-        <a href="mailto:info@87partners.com" class="btn">お問い合わせ</a>
+        <a href="#contact" class="btn">お問い合わせ</a>
     </div>
 </section>
 
@@ -305,25 +331,29 @@
     </div>
 </section>
 
-<section class="contact-section">
+<section id="contact" class="contact-section">
     <div class="container">
         <h2>お問い合わせ</h2>
         <div class="contact-box">
-            <p>ご相談はメールにて承っております。<br>
-            まずは概要だけでも構いません。状況とゴールをお気軽にお知らせください。</p>
-            <div style="text-align: center;">
-                <a href="mailto:info@87partners.com" class="btn">メールを作成する</a>
-            </div>
-            <p style="font-size: 0.9rem; color: #999; margin-top: 30px; margin-bottom: 0;">
-                ※機密情報は、必要に応じてNDA締結後に共有してください。
+            <p>
+                ご相談やご依頼は、以下のフォームよりお気軽にご連絡ください。<br>
+                原則1営業日以内に返信いたします。
             </p>
-        </div>
-    </div>
-</section>
+            
+            <form action="https://formsubmit.co/info@87partners.com" method="POST">
+                <input type="hidden" name="_next" value="https://87partners.com/thanks.html">
+                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_subject" value="【HPよりお問い合わせ】">
 
-<footer>
-    &copy; 2026 87 Partners Inc. All Rights Reserved.
-</footer>
+                <div class="form-group">
+                    <label>お名前 <span style="color:red">*</span></label>
+                    <input type="text" name="name" placeholder="山田 太郎" required>
+                </div>
 
-</body>
-</html>
+                <div class="form-group">
+                    <label>メールアドレス <span style="color:red">*</span></label>
+                    <input type="email" name="email" placeholder="example@company.co.jp" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>お問い合わせ内容 <span style="color:red">*</span>
