@@ -164,7 +164,7 @@
             font-weight: normal;
         }
 
-        /* お問い合わせフォーム（CSS追加） */
+        /* お問い合わせフォーム（このスタイル設定が重要です！） */
         .contact-section {
             text-align: center;
             background-color: #f9f9f9;
@@ -177,7 +177,7 @@
             margin: 0 auto;
             max-width: 700px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            text-align: left; /* 入力欄は左揃え */
+            text-align: left;
         }
         .form-group {
             margin-bottom: 25px;
@@ -195,11 +195,11 @@
             font-size: 1rem;
             border: 1px solid #ccc;
             border-radius: 6px;
-            box-sizing: border-box; /* パディングを含めた幅計算 */
+            box-sizing: border-box;
             font-family: inherit;
         }
         .form-group textarea {
-            height: 180px;
+            height: 180px; /* ここで箱の高さを指定しています */
             resize: vertical;
         }
         .submit-area {
@@ -356,4 +356,25 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>お問い合わせ内容 <span style="color:red">*</span>
+                    <label>お問い合わせ内容 <span style="color:red">*</span></label>
+                    <textarea name="message" placeholder="ご相談内容をご記入ください" required></textarea>
+                </div>
+
+                <div class="submit-area">
+                    <button type="submit" class="btn">送信する</button>
+                </div>
+            </form>
+
+            <p style="font-size: 0.9rem; color: #999; margin-top: 30px; margin-bottom: 0; text-align: center;">
+                ※機密情報は、必要に応じてNDA締結後に共有してください。
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    &copy; 2026 87 Partners Inc. All Rights Reserved.
+</footer>
+
+</body>
+</html>
