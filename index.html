@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>株式会社87パートナーズ | 87 Partners Inc.</title>
+    <meta name="description" content="株式会社87パートナーズは、経営支援・AI活用・M&A支援を通じて、中小・成長企業の持続的な発展を支援します。代表取締役 荒波 修。">
+    <!-- OGP -->
+    <meta property="og:title" content="株式会社87パートナーズ | 87 Partners Inc.">
+    <meta property="og:description" content="企業と個人の「次の一手」を、小さく速く、確実に。経営支援・AI活用・M&A支援。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.87partners.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        /* ===== リセット・ベース ===== */
+        *, *::before, *::after { box-sizing: border-box; }
+        :root {
+            --primary: #0056b3;
+            --primary-dark: #003d82;
+            --primary-light: #e8f0fb;
+            --accent: #e8a020;
+            --text: #1a1a2e;
+            --text-light: #555;
+            --bg: #fff;
+            --bg-light: #f7f9fc;
+            --border: #e2e8f0;
+            --radius: 12px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 24px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+        }
+        body {
+            font-family: "Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,"Helvetica Neue",Arial,sans-serif;
+            line-height: 1.85;
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--primary); text-decoration: none; }
+        img { max-width: 100%; }
+        .container { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+        section { padding: 96px 0; }
+
+        /* ===== ナビゲーション ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            padding: 0;
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 28px;
+            height: 120px;
+        }
+        .nav-logo img { height: 108px; width: auto; display: block; }
+        .nav-logo span {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.04em;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+        .nav-links a {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links .nav-cta a {
+            background: var(--primary);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+        .nav-links .nav-cta a:hover { background: var(--primary-dark); opacity: 1; }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            margin: 5px 0;
+            border-radius: 2px;
+        }
+
+        /* ===== ヘッダー（ロゴのみ、navで代替） ===== */
+        /* navに統合したためheaderは削除 */
+
+        /* ===== ヒーロー ===== */
+        .hero {
+            background: linear-gradient(135deg, #f0f5ff 0%, #e8f0fb 50%, #f7f9fc 100%);
+            padding: 120px 28px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -60px; right: -80px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(0,86,179,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-eyebrow {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 28px;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.4;
+            margin: 0 auto 28px;
+            font-weight: 800;
+            max-width: 800px;
+            letter-spacing: -0.01em;
+        }
+        .hero h1 em {
+            font-style: normal;
+            color: var(--primary);
+        }
+        .hero-sub {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 52px;
+            line-height: 1.9;
+        }
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: #fff;
+            padding: 16px 44px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 16px rgba(0,86,179,0.3);
+            cursor: pointer;
+            border: none;
+        }
+        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,86,179,0.35); }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: none;
+        }
+        .btn-outline:hover { background: var(--primary-light); transform: translateY(-2px); box-shadow: none; }
+
+        /* ===== セクション見出し共通 ===== */
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        h2.section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.01em;
+            border: none;
+            display: block;
+            padding: 0;
+        }
+        .section-desc {
+            color: var(--text-light);
+            margin-top: 16px;
+            font-size: 1rem;
+        }
+
+        /* ===== こんな方に（ターゲット） ===== */
+        .target-section { background: var(--bg-light); }
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .target-card {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary);
+        }
+        .target-icon { font-size: 2rem; margin-bottom: 14px; }
+        .target-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin: 0 0 10px;
+            color: var(--primary);
+        }
+        .target-card p { font-size: 0.92rem; margin: 0; color: var(--text-light); line-height: 1.7; }
+
+        /* ===== 事業内容 ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+        .service-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            padding: 36px 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .service-icon { font-size: 2.2rem; margin-bottom: 16px; }
+        .tag {
+            font-size: 0.72rem;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin: 0 0 14px;
+            color: var(--text);
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        .service-card p { font-size: 0.95rem; margin: 0; color: var(--text-light); line-height: 1.75; }
+
+        /* ===== 提供価値 ===== */
+        .value-section { background: var(--bg-light); }
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .value-item {
+            background: #fff;
+            padding: 36px 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            gap: 20px;
+        }
+        .value-num {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-light);
+            line-height: 1;
+            flex-shrink: 0;
+            font-style: italic;
+        }
+        .value-body strong {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+        .value-body p { font-size: 0.93rem; margin: 0; color: var(--text-light); line-height: 1.75; }
+
+        /* ===== 代表者紹介 ===== */
+        .profile-section { background: #fff; }
+        .profile-inner {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+        .profile-photo {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .profile-photo img {
+            width: 100%;
+            display: block;
+        }
+        .profile-photo-placeholder {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, #e8f0fb, #c5d8f5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 5rem;
+        }
+        .profile-info { padding-top: 8px; }
+        .profile-name-en {
+            font-size: 0.85rem;
+            letter-spacing: 0.12em;
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .profile-name {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 0 4px;
+        }
+        .profile-title {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 28px;
+        }
+        .profile-career {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px;
+        }
+        .profile-career li {
+            display: flex;
+            gap: 14px;
+            font-size: 0.93rem;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+        .profile-career li:first-child { border-top: 1px solid var(--border); }
+        .career-year {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            flex-shrink: 0;
+            padding-top: 2px;
+        }
+        .profile-message {
+            background: var(--bg-light);
+            border-left: 4px solid var(--primary);
+            padding: 20px 24px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.85;
+            font-style: italic;
+        }
+
+        /* ===== 会社概要 ===== */
+        .company-section { background: var(--bg-light); }
+        table.company-info {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+            background: #fff;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        table.company-info th, table.company-info td {
+            text-align: left;
+            padding: 22px 28px;
+            border-bottom: 1px solid var(--border);
+        }
+        table.company-info tr:last-child th,
+        table.company-info tr:last-child td { border-bottom: none; }
+        table.company-info th {
+            width: 28%;
+            background: var(--bg-light);
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* ===== お問い合わせ ===== */
+        .contact-section { background: #fff; }
+        .contact-intro {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 48px;
+            color: var(--text-light);
+        }
+        .contact-box {
+            background: var(--bg-light);
+            padding: 52px 48px;
+            border-radius: var(--radius);
+            max-width: 680px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-sm);
+        }
+        .form-group { margin-bottom: 24px; }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            color: var(--text);
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 13px 16px;
+            font-size: 0.97rem;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-family: inherit;
+            background: #fff;
+            transition: border-color 0.2s;
+            color: var(--text);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0,86,179,0.08);
+        }
+        .form-group textarea { height: 160px; resize: vertical; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .submit-area { text-align: center; margin-top: 36px; }
+        .form-note {
+            font-size: 0.82rem;
+            color: #aaa;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* ===== フッター ===== */
+        footer {
+            background: #1a1a2e;
+            color: #aaa;
+            padding: 56px 28px 32px;
+        }
+        .footer-inner {
+            max-width: 1040px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 48px;
+            align-items: start;
+        }
+        .footer-brand { margin-bottom: 16px; }
+        .footer-brand-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .footer-tagline { font-size: 0.85rem; color: #888; }
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .footer-nav a {
+            color: #aaa;
+            font-size: 0.88rem;
+            transition: color 0.2s;
+        }
+        .footer-nav a:hover { color: #fff; }
+        .footer-copy {
+            text-align: center;
+            font-size: 0.82rem;
+            color: #666;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #2d2d44;
+            max-width: 1040px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== スマホ対応 ===== */
+        @media (max-width: 768px) {
+            section { padding: 72px 0; }
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                border-bottom: 1px solid var(--border);
+                padding: 20px 28px;
+                gap: 16px;
+                box-shadow: var(--shadow-md);
+            }
+            .nav-links.open .nav-cta { margin-top: 8px; }
+            .nav-toggle { display: block; }
+            .hero h1 { font-size: 2rem; }
+            .hero-sub { font-size: 1rem; }
+            .target-grid { grid-template-columns: 1fr; gap: 16px; }
+            .services-grid { grid-template-columns: 1fr; gap: 20px; }
+            .value-grid { grid-template-columns: 1fr; }
+            .profile-inner { grid-template-columns: 1fr; gap: 32px; }
+            .profile-photo { max-width: 220px; }
+            .contact-box { padding: 36px 24px; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+            table.company-info th,
+            table.company-info td {
+                display: block;
+                width: 100%;
+                padding: 12px 20px;
+            }
+            table.company-info th {
+                background: var(--bg-light);
+                padding-bottom: 4px;
+                font-weight: 700;
+                color: var(--primary);
+            }
+            table.company-info td { padding-top: 4px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== ナビゲーション ===== -->
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="nav-logo">
+            <img src="assets/logo.png" alt="87パートナーズ" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span style="display:none">87 Partners</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#services">事業内容</a></li>
+            <li><a href="#value">提供価値</a></li>
+            <li><a href="#profile">代表者紹介</a></li>
+            <li><a href="#company">会社概要</a></li>
+            <li class="nav-cta"><a href="#contact">お問い合わせ</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="メニュー">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ===== ヒーロー ===== -->
+<section class="hero">
+    <div class="container">
+        <p class="hero-eyebrow">経営支援 ／ AI活用 ／ M&A支援</p>
+        <h1>企業の「次の一手」を、<br><em>小さく速く</em>、確実に。</h1>
+        <p class="hero-sub">
+            豊富な経営経験と最新のAI活用を組み合わせ、<br>
+            企業の経営課題を共に解決するパートナーです。
+        </p>
+        <div class="hero-cta">
+            <a href="#contact" class="btn">無料相談を申し込む</a>
+            <a href="#services" class="btn btn-outline">サービスを見る</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== こんな方に ===== -->
+<section class="target-section">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-eyebrow">For Whom</p>
+            <h2 class="section-title">こんな方にオススメです</h2>
+        </div>
+        <div class="target-grid">
+            <div class="target-card">
+                <div class="target-icon">📈</div>
+                <h3>経営課題を抱える経営者</h3>
+                <p>戦略策定・意思決定・KPI設計など、経営の「次の一手」を一緒に考えるパートナーが必要な方。</p>
+            </div>
+            <div class="target-card">
+                <div class="target-icon">🤖</div>
+                <h3>AI・DXを推進したい企業</h3>
+                <p>業務自動化やAIエージェント導入を検討しているが、何から始めればよいか分からない方。</p>
+            </div>
+            <div class="target-card">
+                <div class="target-icon">🏢</div>
+                <h3>事業承継を検討中の経営者</h3>
+                <p>後継者問題やM&Aによる事業承継を検討しているが、具体的な進め方が分からない方。</p>
+            </div>
+            <div class="target-card">
+                <div class="target-icon">🚀</div>
+                <h3>スタートアップ・成長企業</h3>
+                <p>次のステージへ向けて、経営・組織・技術の複合的な支援を求めている創業者・経営陣。</p>
+            </div>
+            <div class="target-card">
+                <div class="target-icon">💡</div>
+                <h3>「まず相談したい」方</h3>
+                <p>具体的な依頼がなくても構いません。経営の悩みや将来の不安を気軽にご相談ください。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 事業内容 ===== -->
+<section id="services">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-eyebrow">Services</p>
+            <h2 class="section-title">事業内容</h2>
+            <p class="section-desc">経営の現場で培った実践知とAI技術を組み合わせた、5つの支援領域。</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <span class="tag">Consulting</span>
+                <h3>経営支援・コンサルティング</h3>
+                <p>経営課題の構造化、意思決定支援、KPI設計、実行計画（ロードマップ/ガント）まで一気通貫で支援します。</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <span class="tag">Software / AI</span>
+                <h3>ソフトウェア・AI開発</h3>
+                <p>業務自動化、AIエージェント、データ活用のPoCから運用まで。小さく作って継続改善する設計を重視します。</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤝</div>
+                <span class="tag">Partnership</span>
+                <h3>伴走支援（顧問）</h3>
+                <p>継続支援（リテイナー）で定例運用を回しつつ、重要局面はスポットで深く入る柔軟な支援が可能です。</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏦</div>
+                <span class="tag">M&A / Succession</span>
+                <h3>M&A・事業承継支援</h3>
+                <p>後継者不在の中小企業に対し、M&Aマッチングから成約後の経営統合（PMI）まで一貫して支援します。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 提供価値 ===== -->
+<section id="value" class="value-section">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-eyebrow">Our Value</p>
+            <h2 class="section-title">87パートナーズを選ぶ理由</h2>
+        </div>
+        <div class="value-grid">
+            <div class="value-item">
+                <div class="value-num">01</div>
+                <div class="value-body">
+                    <strong>代表が直接、現場に入る</strong>
+                    <p>大手コンサルとは異なり、10年超の経営実績を持つ当社代表が直接ハンズオンで参画します。経験に基づく実践的なアドバイスをお届けします。</p>
+                </div>
+            </div>
+            <div class="value-item">
+                <div class="value-num">02</div>
+                <div class="value-body">
+                    <strong>AI × 経営の掛け合わせ</strong>
+                    <p>最新のAI技術と経営ノウハウを融合した、業界でも希少なアプローチで課題を解決します。</p>
+                </div>
+            </div>
+            <div class="value-item">
+                <div class="value-num">03</div>
+                <div class="value-body">
+                    <strong>成果物ベースで前に進める</strong>
+                    <p>議事録、論点メモ、ロードマップ、合意文書など、判断と実行の"足場"を確実に残します。曖昧な相談をタスクへ分解し、期限と判断基準を明確化します。</p>
+                </div>
+            </div>
+            <div class="value-item">
+                <div class="value-num">04</div>
+                <div class="value-body">
+                    <strong>リテイナーとスポットの柔軟対応</strong>
+                    <p>継続支援（リテイナー）で定例運用を回しつつ、重要局面はスポットで深く入る設計が可能。出張など実費精算が必要な動きにも柔軟に対応します。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 代表者紹介 ===== -->
+<section id="profile" class="profile-section">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-eyebrow">About</p>
+            <h2 class="section-title">代表者紹介</h2>
+        </div>
+        <div class="profile-inner">
+            <div class="profile-photo">
+                <img src="assets/profile.jpg" alt="荒波 修" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="profile-photo-placeholder" style="display:none">👤</div>
+            </div>
+            <div class="profile-info">
+                <p class="profile-name-en">Osamu Aranami</p>
+                <h3 class="profile-name">荒波 修</h3>
+                <p class="profile-title">株式会社87パートナーズ 代表取締役</p>
+                <ul class="profile-career">
+                    <li>
+                        <span class="career-year">2007</span>
+                        <span>オーバーチュア株式会社 入社</span>
+                    </li>
+                    <li>
+                        <span class="career-year">2008</span>
+                        <span>ヤフー株式会社 転籍</span>
+                    </li>
+                    <li>
+                        <span class="career-year">2013</span>
+                        <span>ヤフー株式会社 執行役員 就任</span>
+                    </li>
+                    <li>
+                        <span class="career-year">2016</span>
+                        <span>GYAO株式会社 代表取締役社長 就任</span>
+                    </li>
+                    <li>
+                        <span class="career-year">2019</span>
+                        <span>ソウルドアウト株式会社 代表取締役社長CEO 就任<br><span style="font-size:0.85rem;color:#888">（博報堂DYホールディングス 執行役員 兼務）</span></span>
+                    </li>
+                    <li>
+                        <span class="career-year">2026</span>
+                        <span>株式会社87パートナーズ 設立・代表取締役就任</span>
+                    </li>
+                </ul>
+                <blockquote class="profile-message">
+                    「大企業の経営から地方中小企業の支援まで、多様な現場を経験してきました。
+                    87パートナーズでは、そのすべての経験を活かして、
+                    皆さんの事業の『次の一手』を一緒に考えるパートナーでありたいと思っています。」
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 会社概要 ===== -->
+<section id="company" class="company-section">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-eyebrow">Company</p>
+            <h2 class="section-title">会社概要</h2>
+        </div>
+        <table class="company-info">
+            <tr>
+                <th>商号</th>
+                <td>株式会社87パートナーズ（英語表記：87 Partners Inc.）</td>
+            </tr>
+            <tr>
+                <th>設立</th>
+                <td>2026年4月2日</td>
+            </tr>
+            <tr>
+                <th>資本金</th>
+                <td>100万円</td>
+            </tr>
+            <tr>
+                <th>代表取締役</th>
+                <td>荒波 修（Osamu Aranami）</td>
+            </tr>
+            <tr>
+                <th>本店所在地</th>
+                <td>〒251-0037 神奈川県藤沢市鵠沼海岸4丁目2番11号</td>
+            </tr>
+            <tr>
+                <th>連絡先</th>
+                <td><a href="mailto:info@87partners.com">info@87partners.com</a></td>
+            </tr>
+            <tr>
+                <th>事業内容</th>
+                <td>経営支援・コンサルティング / ソフトウェア・AI開発 / M&A・事業承継支援 / 伴走支援（顧問）</td>
+            </tr>
+            <tr>
+                <th>受付時間</th>
+                <td>平日 9:00〜18:00（メールは24時間受付）</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<!-- ===== お問い合わせ ===== -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-eyebrow">Contact</p>
+            <h2 class="section-title">お問い合わせ・無料相談</h2>
+        </div>
+        <p class="contact-intro">
+            ご相談やご依頼は、以下のフォームよりお気軽にご連絡ください。<br>
+            原則1営業日以内に返信いたします。
+        </p>
+        <div class="contact-box">
+            <form action="https://formsubmit.co/info@87partners.com" method="POST">
+                <input type="hidden" name="_next" value="https://87partners.com/thanks.html">
+                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_subject" value="【HPよりお問い合わせ】">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>お名前 <span style="color:#e53e3e">*</span></label>
+                        <input type="text" name="name" placeholder="山田 太郎" required>
+                    </div>
+                    <div class="form-group">
+                        <label>会社名</label>
+                        <input type="text" name="company" placeholder="株式会社〇〇">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>メールアドレス <span style="color:#e53e3e">*</span></label>
+                    <input type="email" name="email" placeholder="example@company.co.jp" required>
+                </div>
+
+                <div class="form-group">
+                    <label>ご相談の種類</label>
+                    <select name="category">
+                        <option value="">選択してください</option>
+                        <option>経営支援・コンサルティング</option>
+                        <option>ソフトウェア・AI開発</option>
+                        <option>M&A・事業承継支援</option>
+                        <option>伴走支援（顧問）</option>
+                        <option>その他・まずは相談したい</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>お問い合わせ内容 <span style="color:#e53e3e">*</span></label>
+                    <textarea name="message" placeholder="ご相談内容をご記入ください。まだ具体的でなくても構いません。" required></textarea>
+                </div>
+
+                <div class="submit-area">
+                    <button type="submit" class="btn">送信する →</button>
+                </div>
+            </form>
+            <p class="form-note">※機密情報は、必要に応じてNDA締結後に共有してください。</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== フッター ===== -->
+<footer>
+    <div class="footer-inner">
+        <div>
+            <div class="footer-brand">
+                <div class="footer-brand-name">株式会社87パートナーズ</div>
+                <div class="footer-tagline">企業と個人の「次の一手」を、小さく速く、確実に。</div>
+            </div>
+            <div style="font-size:0.82rem; color:#666; margin-top:12px;">
+                〒251-0037 神奈川県藤沢市鵠沼海岸4丁目2番11号<br>
+                <a href="mailto:info@87partners.com" style="color:#888;">info@87partners.com</a>
+            </div>
+        </div>
+        <nav class="footer-nav">
+            <a href="#services">事業内容</a>
+            <a href="#value">提供価値</a>
+            <a href="#profile">代表者紹介</a>
+            <a href="#company">会社概要</a>
+            <a href="#contact">お問い合わせ</a>
+        </nav>
+    </div>
+    <p class="footer-copy">&copy; 2026 87 Partners Inc. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // ナビゲーション：スマホ用トグル
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+
+    // スムーススクロール
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                links.classList.remove('open');
+                const offset = 64;
+                window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
