@@ -547,6 +547,28 @@
         footer, footer *, .footer-inner, .footer-inner * {
             -webkit-tap-highlight-color: transparent;
         }
+        .profile-x {
+            margin-top: 20px;
+        }
+        .profile-x-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none !important;
+            border: 1.5px solid var(--border);
+            border-radius: 999px;
+            padding: 9px 20px 9px 16px;
+            transition: all 0.2s;
+        }
+        .profile-x-link:hover {
+            color: var(--text);
+            border-color: #aaa;
+            background: var(--bg-light);
+            transform: translateY(-1px);
+        }
         .footer-right {
             display: flex;
             flex-direction: column;
@@ -1008,6 +1030,12 @@
                     87パートナーズでは、そのすべての経験を活かして、
                     皆さんの事業の『次の一手』を一緒に考えるパートナーでありたいと思っています。」
                 </blockquote>
+                <div class="profile-x">
+                    <a href="https://x.com/osamu_aranami" target="_blank" rel="noopener noreferrer" class="profile-x-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L2.25 2.25h6.84l4.26 5.632 5.894-5.632Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        @osamu_aranami でも発信中
+                    </a>
+                </div>
             </div>
         </div>
     </div>
