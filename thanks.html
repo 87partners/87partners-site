@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせありがとうございます | 株式会社87パートナーズ</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NL2SCXBP0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-2NL2SCXBP0');
+        gtag('event', 'contact_form_submit', {
+            event_category: 'engagement',
+            event_label: 'お問い合わせフォーム送信'
+        });
+    </script>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            font-family: "Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,"Helvetica Neue",Arial,sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f7f9fc;
+            color: #1a1a2e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 64px 56px;
+            max-width: 520px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+        .icon {
+            width: 64px;
+            height: 64px;
+            background: #e8f0fb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 28px;
+        }
+        .icon svg { color: #0056b3; }
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 0 16px;
+        }
+        p {
+            font-size: 0.97rem;
+            color: #555;
+            line-height: 1.85;
+            margin: 0 0 36px;
+        }
+        a.btn {
+            display: inline-block;
+            background: #0056b3;
+            color: #fff;
+            padding: 14px 40px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.97rem;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        a.btn:hover { background: #003d82; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h1>お問い合わせありがとうございます</h1>
+        <p>
+            内容を確認のうえ、原則1営業日以内にご連絡いたします。<br>
+            しばらくお待ちください。
+        </p>
+        <a href="/" class="btn">トップページに戻る</a>
+    </div>
+</body>
+</html>
