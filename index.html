@@ -500,29 +500,70 @@
             flex-direction: column;
             gap: 10px;
             background: #1a1a2e;
+            border: none !important;
+            box-shadow: none !important;
         }
-        .footer-nav button {
-            background: none;
-            border: none;
+        .footer-nav button,
+        .footer-nav button:link,
+        .footer-nav button:visited,
+        .footer-nav button:hover,
+        .footer-nav button:active,
+        .footer-nav button:focus,
+        .footer-nav button:focus-visible {
+            background: transparent !important;
+            background-color: transparent !important;
+            background-image: none !important;
+            border: none !important;
+            border-bottom: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+            text-decoration: none !important;
+            text-decoration-line: none !important;
+            text-decoration-color: transparent !important;
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+            appearance: none !important;
             color: #aaa;
             font-size: 0.88rem;
             font-family: inherit;
-            text-decoration: none;
             cursor: pointer;
             padding: 0;
+            margin: 0;
             text-align: left;
             transition: color 0.2s;
         }
+        .footer-nav button::before,
+        .footer-nav button::after {
+            content: none !important;
+            display: none !important;
+            border: none !important;
+            background: none !important;
+        }
         .footer-nav button:hover { color: #fff; }
+        footer, footer *, .footer-inner, .footer-inner * {
+            -webkit-tap-highlight-color: transparent;
+        }
         .footer-copy {
             text-align: center;
             font-size: 0.82rem;
             color: #666;
             margin-top: 48px;
             padding-top: 0;
+            padding-bottom: 0;
+            border: none !important;
+            border-top: none !important;
+            border-bottom: none !important;
+            background: transparent;
             max-width: 1040px;
             margin-left: auto;
             margin-right: auto;
+        }
+        .footer-copy::before,
+        .footer-copy::after {
+            content: none !important;
+            display: none !important;
+            border: none !important;
+            background: none !important;
         }
 
         /* ===== スマホ対応 ===== */
