@@ -192,6 +192,13 @@
             box-shadow: none;
         }
         .btn-outline:hover { background: var(--primary-light); transform: translateY(-2px); box-shadow: none; }
+        .btn-ai {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5a 100%);
+            color: #fff;
+            border: none;
+            box-shadow: 0 4px 16px rgba(26,26,46,0.35);
+        }
+        .btn-ai:hover { background: linear-gradient(135deg, #2d2d5a 0%, #3d3d7a 100%); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(26,26,46,0.45); }
 
         /* ===== セクション見出し共通 ===== */
         .section-header { text-align: center; margin-bottom: 60px; }
@@ -543,6 +550,35 @@
         footer, footer *, .footer-inner, .footer-inner * {
             -webkit-tap-highlight-color: transparent;
         }
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .footer-nav-ai {
+            color: #aaaaff !important;
+            font-size: 0.88rem;
+            text-decoration: none !important;
+            transition: color 0.2s;
+            display: block;
+        }
+        .footer-nav-ai:hover { color: #ccccff !important; }
+        .footer-social {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .footer-x-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: #888;
+            font-size: 0.82rem;
+            text-decoration: none !important;
+            transition: color 0.2s;
+        }
+        .footer-x-link:hover { color: #fff; }
         .footer-copy {
             text-align: center;
             font-size: 0.82rem;
@@ -564,6 +600,112 @@
             display: none !important;
             border: none !important;
             background: none !important;
+        }
+
+        /* ===== AIチームスポットライト ===== */
+        .ai-team-section {
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 60%, #1e1e3a 100%);
+            padding: 96px 0;
+            color: #ccc;
+        }
+        .ai-team-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+        .ai-team-heading {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.4;
+            margin: 12px 0 20px;
+        }
+        .ai-team-desc {
+            color: #aaa;
+            font-size: 0.97rem;
+            line-height: 1.9;
+            margin-bottom: 24px;
+        }
+        .ai-team-members {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .ai-team-members li {
+            font-size: 0.9rem;
+            color: #bbb;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .ai-badge {
+            background: rgba(136,136,255,0.18);
+            color: #aaaaff;
+            border: 1px solid rgba(136,136,255,0.35);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            flex-shrink: 0;
+        }
+        .ai-team-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ai-orb {
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            background: radial-gradient(circle, rgba(100,100,255,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse-orb 3s ease-in-out infinite;
+        }
+        @keyframes pulse-orb {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.12); opacity: 1; }
+        }
+        .ai-grid-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        .ai-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(136,136,255,0.2);
+            border-radius: 12px;
+            padding: 20px 12px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #ddd;
+            backdrop-filter: blur(4px);
+            transition: all 0.25s;
+        }
+        .ai-card:hover {
+            background: rgba(136,136,255,0.12);
+            border-color: rgba(136,136,255,0.5);
+            transform: translateY(-3px);
+        }
+        .ai-card span {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 400;
+            color: #8888cc;
+            margin-top: 4px;
+        }
+        .ai-card-more {
+            background: rgba(136,136,255,0.1);
+            border-color: rgba(136,136,255,0.3);
+            color: #aaaaff;
         }
 
         /* ===== スマホ対応 ===== */
@@ -595,6 +737,11 @@
             .contact-box { padding: 36px 24px; }
             .form-row { grid-template-columns: 1fr; }
             .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+            .ai-team-inner { grid-template-columns: 1fr; gap: 40px; }
+            .ai-team-heading { font-size: 1.5rem; }
+            .ai-team-visual { order: -1; }
+            .ai-grid-cards { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+            .ai-card { padding: 14px 8px; font-size: 0.82rem; }
             table.company-info th,
             table.company-info td {
                 display: block;
@@ -646,6 +793,7 @@
         <div class="hero-cta">
             <a href="#contact" class="btn">無料相談を申し込む</a>
             <a href="#services" class="btn btn-outline">サービスを見る</a>
+            <a href="ai-team.html" class="btn btn-ai">🤖 AIチームを見る</a>
         </div>
     </div>
 </section>
@@ -719,6 +867,40 @@
                 <span class="tag">M&A / Succession</span>
                 <h3>M&A・事業承継支援</h3>
                 <p>後継者不在の中小企業に対し、M&Aマッチングから成約後の経営統合（PMI）まで一貫して支援します。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== AIチームスポットライト ===== -->
+<section class="ai-team-section">
+    <div class="container">
+        <div class="ai-team-inner">
+            <div class="ai-team-text">
+                <p class="section-eyebrow" style="color:#8888ff;">AI Team</p>
+                <h2 class="ai-team-heading">バーチャルCxOチームが、<br>経営を支える。</h2>
+                <p class="ai-team-desc">
+                    87パートナーズには、CFO・CMO・CTO・CPOなど各領域に特化したAIエージェントが在籍しています。財務分析から営業戦略、技術選定まで、専門家チームが即座に動き出します。
+                </p>
+                <ul class="ai-team-members">
+                    <li><span class="ai-badge">CFO</span> アキラ ― 財務・資金管理</li>
+                    <li><span class="ai-badge">CMO</span> ナナ ― マーケティング・ブランド</li>
+                    <li><span class="ai-badge">CTO</span> コウ ― 技術戦略・開発</li>
+                    <li><span class="ai-badge">CSO</span> タカ ― 営業戦略・収益拡大</li>
+                    <li style="color:#8888ff; font-size:0.85rem;">＋ CPO / CIO / CHRO / CLO / 秘書</li>
+                </ul>
+                <a href="ai-team.html" class="btn btn-ai" style="margin-top:8px; display:inline-flex;">AIチームの全メンバーを見る →</a>
+            </div>
+            <div class="ai-team-visual">
+                <div class="ai-orb"></div>
+                <div class="ai-grid-cards">
+                    <div class="ai-card">CFO<br><span>財務</span></div>
+                    <div class="ai-card">CMO<br><span>Marketing</span></div>
+                    <div class="ai-card">CTO<br><span>Tech</span></div>
+                    <div class="ai-card">CSO<br><span>Sales</span></div>
+                    <div class="ai-card">CPO<br><span>Product</span></div>
+                    <div class="ai-card ai-card-more">+4<br><span>More</span></div>
+                </div>
             </div>
         </div>
     </div>
@@ -933,13 +1115,22 @@
                 <a href="mailto:info@87partners.com" style="color:#888;">info@87partners.com</a>
             </div>
         </div>
-        <nav class="footer-nav">
-            <button onclick="scrollToSection('services')">事業内容</button>
-            <button onclick="scrollToSection('value')">提供価値</button>
-            <button onclick="scrollToSection('profile')">代表者紹介</button>
-            <button onclick="scrollToSection('company')">会社概要</button>
-            <button onclick="scrollToSection('contact')">お問い合わせ</button>
-        </nav>
+        <div class="footer-right">
+            <nav class="footer-nav">
+                <button onclick="scrollToSection('services')">事業内容</button>
+                <button onclick="scrollToSection('value')">提供価値</button>
+                <button onclick="scrollToSection('profile')">代表者紹介</button>
+                <button onclick="scrollToSection('company')">会社概要</button>
+                <button onclick="scrollToSection('contact')">お問い合わせ</button>
+                <a href="ai-team.html" class="footer-nav-ai">🤖 AIチーム</a>
+            </nav>
+            <div class="footer-social">
+                <a href="https://x.com/osamu_aranami" target="_blank" rel="noopener noreferrer" class="footer-x-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L2.25 2.25h6.84l4.26 5.632 5.894-5.632Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    @osamu_aranami
+                </a>
+            </div>
+        </div>
     </div>
     <p class="footer-copy">&copy; 2026 87 Partners Inc. All Rights Reserved.</p>
 </footer>
