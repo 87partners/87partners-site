@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIエージェントチーム | 株式会社87パートナーズ</title>
+    <meta name="description" content="87パートナーズのAIエージェントチームをご紹介します。各専門領域に特化した9名のAIエージェントが、代表・荒波修の経営判断をサポートします。">
+    <meta property="og:title" content="AIエージェントチーム | 株式会社87パートナーズ">
+    <meta property="og:description" content="財務・マーケティング・法務など9領域に特化したAIエージェントチームが、経営課題の解決をスピーディーに支援します。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.87partners.com/ai-team.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        /* ===== リセット・ベース（index.htmlと統一） ===== */
+        *, *::before, *::after { box-sizing: border-box; }
+        :root {
+            --primary: #0056b3;
+            --primary-dark: #003d82;
+            --primary-light: #e8f0fb;
+            --accent: #e8a020;
+            --text: #1a1a2e;
+            --text-light: #555;
+            --bg: #fff;
+            --bg-light: #f7f9fc;
+            --border: #e2e8f0;
+            --radius: 12px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 24px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+            --ai-green: #2D8B6D;
+            --ai-green-light: #e8f5f1;
+        }
+        body {
+            font-family: "Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,"Helvetica Neue",Arial,sans-serif;
+            line-height: 1.85;
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--primary); text-decoration: none; }
+        img { max-width: 100%; }
+        .container { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+        section { padding: 96px 0; }
+
+        /* ===== ナビゲーション（index.htmlと同一） ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            padding: 0;
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 28px;
+            height: 120px;
+        }
+        .nav-logo img { height: 108px; width: auto; display: block; }
+        .nav-logo span {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.04em;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+        .nav-links a {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a.active { color: var(--primary); font-weight: 700; }
+        .nav-links .nav-cta a {
+            background: var(--primary);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+        .nav-links .nav-cta a:hover { background: var(--primary-dark); }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+        .nav-toggle span {
+            display: block; width: 24px; height: 2px;
+            background: var(--text); margin: 5px 0; border-radius: 2px;
+        }
+
+        /* ===== AIであることの開示バナー ===== */
+        .disclosure-banner {
+            background: var(--ai-green-light);
+            border-bottom: 2px solid var(--ai-green);
+            padding: 14px 28px;
+            text-align: center;
+        }
+        .disclosure-banner p {
+            max-width: 1040px;
+            margin: 0 auto;
+            font-size: 0.875rem;
+            color: #1a5c47;
+            font-weight: 500;
+            line-height: 1.7;
+        }
+
+        /* ===== ヒーロー ===== */
+        .hero {
+            background: linear-gradient(135deg, #f0f5ff 0%, #e8f0fb 50%, #e8f5f1 100%);
+            padding: 100px 28px 88px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -60px; right: -80px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(45,139,109,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-eyebrow {
+            display: inline-block;
+            background: var(--ai-green);
+            color: #fff;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            padding: 6px 18px;
+            border-radius: 20px;
+            margin-bottom: 28px;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            line-height: 1.4;
+            margin: 0 auto 28px;
+            font-weight: 800;
+            max-width: 800px;
+            letter-spacing: -0.01em;
+        }
+        .hero h1 em { font-style: normal; color: var(--primary); }
+        .hero-sub {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 620px;
+            margin: 0 auto 52px;
+            line-height: 1.9;
+        }
+        .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: #fff;
+            padding: 16px 44px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 16px rgba(0,86,179,0.3);
+            cursor: pointer;
+            border: none;
+        }
+        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,86,179,0.35); }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: none;
+        }
+        .btn-outline:hover { background: var(--primary-light); transform: translateY(-2px); box-shadow: none; }
+
+        /* ===== セクション見出し共通 ===== */
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        h2.section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.01em;
+            border: none;
+            display: block;
+            padding: 0;
+        }
+        .section-desc { color: var(--text-light); margin-top: 16px; font-size: 1rem; }
+
+        /* ===== エージェントグリッド ===== */
+        .agents-section { background: var(--bg); }
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .agent-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.25s, box-shadow 0.25s;
+            position: relative;
+        }
+        .agent-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .ai-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(45,139,109,0.88);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 100px;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(4px);
+            z-index: 1;
+        }
+        .agent-img-wrap {
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background: var(--bg-light);
+        }
+        .agent-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+        .agent-body { padding: 20px 22px 24px; }
+        .agent-role {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            letter-spacing: 0.03em;
+        }
+        .agent-name {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: -0.02em;
+            margin: 0 0 6px;
+        }
+        .agent-domain {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 14px;
+            line-height: 1.65;
+        }
+        .agent-skills { display: flex; flex-wrap: wrap; gap: 6px; }
+        .agent-skills span {
+            font-size: 0.72rem;
+            background: var(--bg-light);
+            color: var(--text-light);
+            padding: 3px 9px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        /* ===== 活用方法 ===== */
+        .how-section { background: var(--bg-light); }
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .how-card {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 36px 28px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+        }
+        .how-num {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--primary-light);
+            line-height: 1;
+            margin-bottom: 14px;
+            font-style: italic;
+        }
+        .how-card h3 { font-size: 1.05rem; font-weight: 700; margin: 0 0 10px; }
+        .how-card p { font-size: 0.93rem; color: var(--text-light); line-height: 1.8; margin: 0; }
+
+        /* ===== 免責事項 ===== */
+        .legal-section { background: #fff; }
+        .legal-box {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--ai-green);
+            border-radius: var(--radius);
+            padding: 36px 40px;
+            box-shadow: var(--shadow-sm);
+        }
+        .legal-box h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0 0 24px;
+            color: var(--text);
+        }
+        .legal-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 20px; }
+        .legal-list li {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.85;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .legal-list li:last-child { border-bottom: none; padding-bottom: 0; }
+        .legal-list li strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 0.95rem; }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            text-align: center;
+            padding: 80px 28px;
+        }
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+            margin: 0 0 16px;
+        }
+        .cta-section p { color: rgba(255,255,255,0.8); font-size: 1rem; margin-bottom: 40px; }
+        .btn-white {
+            display: inline-flex;
+            align-items: center;
+            background: #fff;
+            color: var(--primary);
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 16px 44px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+
+        /* ===== フッター（index.htmlと同一） ===== */
+        footer {
+            background: #1a1a2e;
+            color: #aaa;
+            padding: 56px 28px 32px;
+        }
+        .footer-inner {
+            max-width: 1040px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 48px;
+            align-items: start;
+        }
+        .footer-brand { margin-bottom: 16px; }
+        .footer-brand-name { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+        .footer-tagline { font-size: 0.85rem; color: #888; }
+        .footer-nav { display: flex; flex-direction: column; gap: 10px; }
+        .footer-nav a { color: #aaa; font-size: 0.88rem; transition: color 0.2s; }
+        .footer-nav a:hover { color: #fff; }
+        .footer-copy {
+            text-align: center;
+            font-size: 0.82rem;
+            color: #666;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #2d2d44;
+            max-width: 1040px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== スマホ対応 ===== */
+        @media (max-width: 768px) {
+            section { padding: 72px 0; }
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0; right: 0;
+                background: #fff;
+                border-bottom: 1px solid var(--border);
+                padding: 20px 28px;
+                gap: 16px;
+                box-shadow: var(--shadow-md);
+            }
+            .nav-toggle { display: block; }
+            .hero h1 { font-size: 2rem; }
+            .agent-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .how-grid { grid-template-columns: 1fr; }
+            .legal-box { padding: 24px 20px; }
+            .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+        }
+        @media (max-width: 480px) {
+            .agent-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== AIであることの開示バナー ===== -->
+<div class="disclosure-banner">
+    <p>
+        <strong>【重要なお知らせ】</strong>
+        このページで紹介するチームメンバーは、大規模言語モデル（LLM）を活用した
+        <strong>AIエージェントであり、実在する人物ではありません。</strong>
+        プロフィール画像はAIにより生成された架空のイラストです。
+    </p>
+</div>
+
+<!-- ===== ナビゲーション ===== -->
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/logo.png" alt="87パートナーズ" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span style="display:none">87 Partners</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#services">事業内容</a></li>
+            <li><a href="index.html#value">提供価値</a></li>
+            <li><a href="ai-team.html" class="active">AIチーム</a></li>
+            <li><a href="index.html#company">会社概要</a></li>
+            <li class="nav-cta"><a href="index.html#contact">お問い合わせ</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="メニュー">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ===== ヒーロー ===== -->
+<section class="hero">
+    <div class="container">
+        <p class="hero-eyebrow">✦ AI Agent Team</p>
+        <h1>専門領域に特化した<br><em>9名のAIエージェントチーム</em></h1>
+        <p class="hero-sub">
+            87パートナーズは、各CxO領域に特化したAIエージェントを活用し、
+            経営課題の分析・提案・実行支援をスピーディーに提供します。<br>
+            人間の経営経験とAIの処理能力を組み合わせた、新しい経営支援のかたちです。
+        </p>
+        <div class="hero-cta">
+            <a href="index.html#contact" class="btn">無料相談を申し込む</a>
+            <a href="index.html#services" class="btn btn-outline">サービスを見る</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== エージェント紹介 ===== -->
+<section class="agents-section">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-eyebrow">AI Agent Members</p>
+            <h2 class="section-title">AIエージェント紹介</h2>
+            <p class="section-desc">各エージェントは担当領域の専門知識を持ち、代表・荒波修の経営判断をサポートします。</p>
+        </div>
+        <div class="agent-grid">
+
+            <!-- CFO アキラ -->
+            <div class="agent-card">
+                <span class="ai-badge">AI Agent</span>
+                <div class="agent-img-wrap">
+                    <img src="assets/profile/CFO_アキラ.png" alt="AIエージェント アキラ（CFO）のイラスト画像">
+                </div>
+                <div class="agent-body">
+                    <span class="agent-role">CFO｜最高財務責任者</span>
+                    <h3 class="agent-name">アキラ</h3>
+                    <p class="agent-domain">財務戦略・予算管理・資金調達・投資判断・ROI分析を担当</p>
+                    <div class="agent-skills">
+                        <span>財務戦略</span><span>資金調達</span><span>予算管理</span><span>リスク管理</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CMO ナナ -->
+            <div class="agent-card">
+                <span class="ai-badge">AI Agent</span>
+                <div class="agent-img-wrap">
+                    <img src="assets/profile/CMO_ナナ.png" alt="AIエージェント ナナ（CMO）のイラスト画像">
+                </div>
+                <div class="agent-body">
+                    <span class="agent-role">CMO｜最高マーケティング責任者</span>
+                    <h3 class="agent-name">ナナ</h3>
+                    <p class="agent-domain">ブランド戦略・デジタルマーケティング・PR・市場調査を担当</p>
+                    <div class="agent-skills">
+                        <span>ブランド戦略</span><span>SNS運用</span><span>コンテンツ</span><span>市場調査</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTO コウ -->
+            <div class="agent-card">
+                <span class="ai-badge">AI Agent</span>
+                <div class="agent-img-wrap">
+                    <img src="assets/profile/CTO_コウ.png" alt="AIエージェント コウ（CTO）のイラスト画像">
+                </div>
+                <div class="agent-body">
+                    <span class="agent-role">CTO｜最高技術責任者</span>
+                    <h3 class="agent-name">コウ</h3>
+                    <p class="agent-domain">技術戦略・アーキテクチャ設計・インフラ・R&D推進を担当</p>
+                    <div class="agent-skills">
+                        <span>技術戦略</span><span>インフラ</span><span>セキュリティ</span><span>R&D</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CPO ノア -->
+            <div class="agent-card">
+                <span class="ai-badge">AI Agent</span>
+                <div class="agent-img-wrap">
+                    <img src="assets/profile/CPO_ノア.png" alt="AIエージェント ノア（CPO）のイラスト画像">
+                </div>
+                <div class="agent-body">
+                    <span class="agent-role">CPO｜最高プロダクト責任者</span>
+                    <h3 class="agent-name">ノア</h3>
+                    <p class="agent-domain">プロダクト戦略・ロードマップ・UX設計・要件定義を担当</p>
+                    <div class="agent-skills">
+                        <span>プロダクト戦略</span><span>UX</span><span>ロードマップ</span><span>KPI設計</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CIO シン -->
+            <div class="agent-card">
+                <span class="ai-badge">AI Agent</span>
+                <div class="agent-img-wrap">
+                    <img src="assets/profile/CIO_シン.png" alt="AIエージェント シン（CIO）のイラスト画像">
+                </div>
+                <div class="agent-body">
+                    <span class="agent-role">CIO｜最高情報責任者</span>
+                    <h3 class="agent-name">シン</h3>
+                    <p class="agent-domain">DX推進・情報システム・データガバナンス・SaaS選定を担当</p>
+                    <div class="agent-skills">
+                        <span>DX推進</span><span>データ分析</span><span>SaaS選定</span><span>セキュリティ</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CSO タカ -->
+            <div class="agent-card">
+                <span class="ai-badge">AI Agent</span>
+                <div class="agent-img-wrap">
+                    <img src="assets/profile/CSO_タカ.png" alt="AIエージェント タカ（CSO）のイラスト画像">
+                </div>
+                <div class="agent-body">
+                    <span class="agent-role">CSO｜最高営業責任者</span>
+                    <h3 class="agent-name">タカ</h3>
+                    <p class="agent-domain">営業戦略・顧客開拓・パートナーシップ・価格戦略を担当</p>
+                    <div class="agent-skills">
+                        <span>営業戦略</span><span>商談支援</span><span>提案書作成</span><span>CRM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHRO ユイ -->
+            <div class="agent-card">
+                <span class="ai-badge">AI Agent</span>
+                <div class="agent-img-wrap">
+                    <img src="assets/profile/CHRO_ユイ.png" alt="AIエージェント ユイ（CHRO）のイラスト画像">
+                </div>
+                <div class="agent-body">
+                    <span class="agent-role">CHRO｜最高人事責任者</span>
+                    <h3 class="agent-name">ユイ</h3>
+                    <p class="agent-domain">採用計画・評価制度・労務管理・組織文化の構築を担当</p>
+                    <div class="agent-skills">
+                        <span>採用戦略</span><span>評価制度</span><span>労務管理</span><span>組織開発</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CLO セイ -->
+            <div class="agent-card">
+                <span class="ai-badge">AI Agent</span>
+                <div class="agent-img-wrap">
+                    <img src="assets/profile/CLO_セイ.png" alt="AIエージェント セイ（CLO）のイラスト画像">
+                </div>
+                <div class="agent-body">
+                    <span class="agent-role">CLO｜最高法務責任者</span>
+                    <h3 class="agent-name">セイ</h3>
+                    <p class="agent-domain">契約・コンプライアンス・知的財産・規制対応・法務戦略を担当</p>
+                    <div class="agent-skills">
+                        <span>契約レビュー</span><span>コンプライアンス</span><span>知財</span><span>リスク管理</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secretary アオイ -->
+            <div class="agent-card">
+                <span class="ai-badge">AI Agent</span>
+                <div class="agent-img-wrap">
+                    <img src="assets/profile/Secretary_アオイ.png" alt="AIエージェント アオイ（Secretary）のイラスト画像">
+                </div>
+                <div class="agent-body">
+                    <span class="agent-role">Secretary｜エグゼクティブ秘書</span>
+                    <h3 class="agent-name">アオイ</h3>
+                    <p class="agent-domain">スケジュール管理・メール対応・議事録・会食手配を担当</p>
+                    <div class="agent-skills">
+                        <span>スケジュール</span><span>メール対応</span><span>議事録</span><span>出張手配</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== 活用方法 ===== -->
+<section class="how-section">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-eyebrow">How It Works</p>
+            <h2 class="section-title">AIチームの活用方法</h2>
+            <p class="section-desc">人間の経営判断とAIの専門知識を組み合わせた新しい経営支援モデルです。</p>
+        </div>
+        <div class="how-grid">
+            <div class="how-card">
+                <div class="how-num">01</div>
+                <h3>課題ヒアリング</h3>
+                <p>代表・荒波修が経営課題をヒアリング。内容に応じて最適なAIエージェントが分析を担当します。</p>
+            </div>
+            <div class="how-card">
+                <div class="how-num">02</div>
+                <h3>AIによる専門分析</h3>
+                <p>担当エージェントが財務・法務・マーケティングなど各専門領域で深い分析と提案を生成します。</p>
+            </div>
+            <div class="how-card">
+                <div class="how-num">03</div>
+                <h3>人間による検証・提供</h3>
+                <p>AIの出力を代表が精査・検証し、責任を持ってクライアントへ提供。品質と信頼性を担保します。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 免責事項 ===== -->
+<section class="legal-section">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-eyebrow">Legal Notice</p>
+            <h2 class="section-title">免責事項・重要事項</h2>
+        </div>
+        <div class="legal-box">
+            <h3>⚖ AIエージェントチームに関する重要事項</h3>
+            <ol class="legal-list">
+                <li>
+                    <strong>AIエージェントの性質について</strong>
+                    本ページに掲載の「アキラ」「ナナ」「コウ」「ノア」「シン」「タカ」「ユイ」「セイ」「アオイ」は、大規模言語モデル（LLM）を活用したAIエージェントであり、<strong>実在する人物ではありません。</strong>氏名・肩書き・プロフィール画像はすべて架空のものです。
+                </li>
+                <li>
+                    <strong>プロフィール画像について</strong>
+                    掲載の画像はAI画像生成ツール（Google Gemini）により生成された架空のイラストです。実在する特定の個人の肖像・容姿を描写したものではありません。万が一、実在する方との類似が認められた場合は速やかに対応いたします（<a href="index.html#contact">お問い合わせはこちら</a>）。
+                </li>
+                <li>
+                    <strong>提供サービスの責任範囲について</strong>
+                    AIエージェントの出力（分析・提案・文書等）は、代表・荒波修が内容を確認・監修した上でクライアントへ提供されます。最終的な経営判断の責任は弊社代表が担います。AIの出力をそのまま最終成果物として提供することはありません。
+                </li>
+                <li>
+                    <strong>専門的助言の限界について</strong>
+                    CLOエージェント「セイ」が提供する情報は法的助言ではありません。具体的な法律問題については、資格を持つ弁護士へご相談ください。同様に、CFOエージェント「アキラ」の情報は投資・税務アドバイスを構成するものではありません。
+                </li>
+                <li>
+                    <strong>お問い合わせ</strong>
+                    本ページの内容に関するご質問・ご懸念は、<a href="index.html#contact">お問い合わせフォーム</a>よりご連絡ください。
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+    <h2>AIチームを活用した経営支援を<br>体験してみませんか？</h2>
+    <p>まずは無料相談から。経営課題をお聞かせください。</p>
+    <a href="index.html#contact" class="btn-white">無料相談を申し込む →</a>
+</section>
+
+<!-- ===== フッター ===== -->
+<footer>
+    <div class="footer-inner">
+        <div>
+            <div class="footer-brand">
+                <div class="footer-brand-name">株式会社87パートナーズ</div>
+                <div class="footer-tagline">企業の「次の一手」を、小さく速く、確実に。</div>
+            </div>
+            <div style="font-size:0.82rem; color:#666; margin-top:12px;">
+                〒251-0037 神奈川県藤沢市鵠沼海岸4丁目2番11号<br>
+                <a href="mailto:info@87partners.com" style="color:#888;">info@87partners.com</a>
+            </div>
+        </div>
+        <nav class="footer-nav">
+            <a href="index.html#services">事業内容</a>
+            <a href="index.html#value">提供価値</a>
+            <a href="ai-team.html">AIエージェントチーム</a>
+            <a href="index.html#company">会社概要</a>
+            <a href="index.html#contact">お問い合わせ</a>
+        </nav>
+    </div>
+    <p class="footer-copy">
+        &copy; 2026 87 Partners Inc. All Rights Reserved.
+        ／ 本ページに登場するAIエージェントは架空の存在であり、実在する人物ではありません。
+    </p>
+</footer>
+
+<script>
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+</script>
+
+</body>
+</html>
