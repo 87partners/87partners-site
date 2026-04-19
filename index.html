@@ -190,12 +190,18 @@
         }
         .btn-outline:hover { background: var(--primary-light); transform: translateY(-2px); box-shadow: none; }
         .btn-ai {
-            background: linear-gradient(135deg, #14251d 0%, #1f4a35 100%);
-            color: #fff;
-            border: none;
-            box-shadow: 0 4px 16px rgba(20,37,29,0.35);
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border: 1px solid transparent;
+            box-shadow: none;
+            font-weight: 700;
         }
-        .btn-ai:hover { background: linear-gradient(135deg, #1f4a35 0%, #2a6348 100%); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(20,37,29,0.45); }
+        .btn-ai:hover {
+            background: #d8ebe0;
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(45,139,109,0.18);
+        }
 
         /* ===== セクション見出し共通 ===== */
         .section-header { text-align: center; margin-bottom: 60px; }
