@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ニュース・コラム | 株式会社87パートナーズ</title>
+    <meta name="description" content="株式会社87パートナーズの最新ニュース・コラム一覧。代表 荒波 修による経営・AI・組織に関する論考を週2本ペースで発信しています。">
+    <meta property="og:title" content="ニュース・コラム | 株式会社87パートナーズ">
+    <meta property="og:description" content="経営・AI・組織に関する論考を週2本ペースで発信。代表 荒波 修のnoteコラム一覧。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.87partners.com/news.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NL2SCXBP0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-2NL2SCXBP0');
+    </script>
+    <style>
+        /* ===== リセット・ベース（index.htmlと統一） ===== */
+        *, *::before, *::after { box-sizing: border-box; }
+        :root {
+            --primary: #0056b3;
+            --primary-dark: #003d82;
+            --primary-light: #e8f0fb;
+            --accent: #e8a020;
+            --text: #1a1a2e;
+            --text-light: #555;
+            --bg: #fff;
+            --bg-light: #f7f9fc;
+            --border: #e2e8f0;
+            --radius: 12px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 24px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+            --ai-green: #2D8B6D;
+            --ai-green-light: #e8f5f1;
+        }
+        body {
+            font-family: "Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,"Helvetica Neue",Arial,sans-serif;
+            line-height: 1.85;
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--primary); text-decoration: none; }
+        img { max-width: 100%; }
+        .container { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+        section { padding: 96px 0; }
+
+        /* ===== ナビゲーション（index/ai-teamと同一） ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            padding: 0;
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 28px;
+            height: 120px;
+        }
+        .nav-logo img { height: 108px; width: auto; display: block; }
+        .nav-logo span {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.04em;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+        .nav-links a {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a.active { color: var(--primary); font-weight: 700; }
+        .nav-links .nav-cta a {
+            background: var(--primary);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+        .nav-links .nav-cta a:hover { background: var(--primary-dark); }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+        .nav-toggle span {
+            display: block; width: 24px; height: 2px;
+            background: var(--text); margin: 5px 0; border-radius: 2px;
+        }
+
+        /* ===== ヒーロー ===== */
+        .hero {
+            background: linear-gradient(135deg, #f0f5ff 0%, #e8f0fb 60%, #ffffff 100%);
+            padding: 88px 28px 72px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -60px; right: -80px;
+            width: 360px; height: 360px;
+            background: radial-gradient(circle, rgba(0,86,179,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-eyebrow {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            padding: 6px 18px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            line-height: 1.4;
+            margin: 0 auto 20px;
+            font-weight: 800;
+            max-width: 820px;
+            letter-spacing: -0.01em;
+        }
+        .hero-sub {
+            font-size: 1.02rem;
+            color: var(--text-light);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+
+        /* ===== ニュース一覧 ===== */
+        .news-section { background: var(--bg); padding: 72px 0 96px; }
+        .news-filter {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 48px;
+        }
+        .news-filter-btn {
+            font-size: 0.82rem;
+            padding: 8px 20px;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: #fff;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+        .news-filter-btn.active,
+        .news-filter-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .news-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+        .news-item {
+            padding: 32px 0;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.2s;
+        }
+        .news-item:first-child { padding-top: 0; }
+        .news-item:last-child { border-bottom: none; }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .news-date {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+        .news-category {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 12px;
+            border-radius: 100px;
+            letter-spacing: 0.03em;
+        }
+        .news-category--column {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+        .news-category--notice {
+            background: var(--ai-green-light);
+            color: var(--ai-green);
+        }
+        .news-category--press {
+            background: #fff3e0;
+            color: #b36a00;
+        }
+
+        .news-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.55;
+            margin: 0 0 10px;
+            letter-spacing: -0.01em;
+        }
+        .news-title a {
+            color: var(--text);
+            transition: color 0.2s;
+        }
+        .news-title a:hover { color: var(--primary); }
+
+        .news-excerpt {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.85;
+            margin: 0 0 14px;
+        }
+
+        .news-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            transition: gap 0.2s;
+        }
+        .news-link:hover {
+            gap: 10px;
+        }
+
+        .news-empty {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-light);
+        }
+        .news-empty p {
+            font-size: 0.95rem;
+            margin: 0 0 24px;
+        }
+
+        /* ===== フォロー誘導ブロック ===== */
+        .follow-section {
+            background: var(--bg-light);
+            padding: 72px 0;
+        }
+        .follow-inner {
+            max-width: 820px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .follow-inner h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin: 0 0 16px;
+            letter-spacing: -0.01em;
+        }
+        .follow-inner p {
+            color: var(--text-light);
+            margin: 0 0 36px;
+            line-height: 1.9;
+        }
+        .follow-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .follow-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            text-align: left;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: block;
+        }
+        .follow-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        .follow-card-icon {
+            font-size: 1.6rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+        .follow-card-title {
+            font-size: 1.02rem;
+            font-weight: 700;
+            margin: 0 0 6px;
+            color: var(--text);
+        }
+        .follow-card-sub {
+            font-size: 0.86rem;
+            color: var(--text-light);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ===== セクション見出し共通 ===== */
+        .section-header { text-align: center; margin-bottom: 48px; }
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        h2.section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.01em;
+            border: none;
+            display: block;
+            padding: 0;
+        }
+        .section-desc { color: var(--text-light); margin-top: 16px; font-size: 1rem; }
+
+        /* ===== フッター（index/ai-teamと同一） ===== */
+        footer {
+            background: #1a1a2e;
+            color: #aaa;
+            padding: 56px 28px 32px;
+        }
+        .footer-inner {
+            max-width: 1040px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 48px;
+            padding-bottom: 36px;
+            border-bottom: 1px solid #333;
+        }
+        .footer-brand { margin-bottom: 16px; }
+        .footer-brand-name { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+        .footer-tagline { font-size: 0.85rem; color: #888; }
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: #1a1a2e;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        .footer-nav a { color: #aaa; font-size: 0.88rem; transition: color 0.2s; }
+        .footer-nav a:hover { color: #fff; }
+        .footer-copy {
+            max-width: 1040px;
+            margin: 24px auto 0;
+            text-align: center;
+            font-size: 0.78rem;
+            color: #666;
+        }
+
+        /* ===== レスポンシブ ===== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.75rem; }
+            .hero-sub { font-size: 0.95rem; }
+            section { padding: 64px 0; }
+            .nav-inner { height: 80px; }
+            .nav-logo img { height: 64px; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px; left: 0; right: 0;
+                background: #fff;
+                flex-direction: column;
+                padding: 20px 28px;
+                border-bottom: 1px solid var(--border);
+                gap: 16px;
+                align-items: stretch;
+            }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+            .news-title { font-size: 1.08rem; }
+            .follow-cards { grid-template-columns: 1fr; }
+            .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== ナビゲーション ===== -->
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/logo.png" alt="87パートナーズ" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span style="display:none">87 Partners</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#services">事業内容</a></li>
+            <li><a href="index.html#value">提供価値</a></li>
+            <li><a href="ai-team.html">AIチーム</a></li>
+            <li><a href="news.html" class="active">ニュース</a></li>
+            <li><a href="index.html#company">会社概要</a></li>
+            <li class="nav-cta"><a href="index.html#contact">お問い合わせ</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="メニュー">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ===== ヒーロー ===== -->
+<section class="hero">
+    <div class="container">
+        <p class="hero-eyebrow">ニュース・コラム</p>
+        <h1>ニュース・コラム</h1>
+        <p class="hero-sub">
+            代表 荒波 修による、経営・AI・組織に関する論考やお知らせを掲載しています。<br>
+            note にて週2本のペースで発信中です。
+        </p>
+    </div>
+</section>
+
+<!-- ===== ニュース一覧 ===== -->
+<section class="news-section">
+    <div class="container">
+
+        <!-- カテゴリフィルタ -->
+        <div class="news-filter" role="tablist" aria-label="カテゴリフィルタ">
+            <button class="news-filter-btn active" data-filter="all" role="tab" aria-selected="true">すべて</button>
+            <button class="news-filter-btn" data-filter="column" role="tab" aria-selected="false">コラム</button>
+            <button class="news-filter-btn" data-filter="notice" role="tab" aria-selected="false">お知らせ</button>
+            <button class="news-filter-btn" data-filter="press" role="tab" aria-selected="false">プレスリリース</button>
+        </div>
+
+        <!-- ニュースリスト -->
+        <ul class="news-list" id="newsList">
+
+            <!-- ▼ 以下、新しい記事はこのコメントの直後に追加する（逆時系列） ▼ -->
+            <!-- TEMPLATE: CMO/note_operations/templates/news_snippet.html を参照 -->
+
+            <!-- ここに最初の記事が入る予定（CLOレビュー・代表承認後） -->
+
+            <!-- ▲ 新規記事挿入ポイント ▲ -->
+
+        </ul>
+
+        <!-- 初期表示用：コンテンツが無い時のプレースホルダ -->
+        <div class="news-empty" id="newsEmpty">
+            <p>
+                現在、公開済みのコラム・ニュースはありません。<br>
+                準備が整い次第、こちらで順次お知らせいたします。
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== フォロー誘導 ===== -->
+<section class="follow-section">
+    <div class="follow-inner">
+        <div class="section-header" style="margin-bottom:32px;">
+            <p class="section-eyebrow">フォロー</p>
+            <h2 class="section-title">発信をフォローする</h2>
+            <p class="section-desc">
+                経営・AI・組織に関する最新の論考は、note と X で発信しています。
+            </p>
+        </div>
+        <div class="follow-cards">
+            <a class="follow-card" href="https://note.com/" target="_blank" rel="noopener">
+                <div class="follow-card-icon">note</div>
+                <p class="follow-card-title">note で深掘りコラムを読む</p>
+                <p class="follow-card-sub">週2本のペースで、経営・AI・組織について書いています。</p>
+            </a>
+            <a class="follow-card" href="https://x.com/osamu_aranami" target="_blank" rel="noopener">
+                <div class="follow-card-icon">𝕏</div>
+                <p class="follow-card-title">@osamu_aranami をフォロー</p>
+                <p class="follow-card-sub">日々の経営・AI・資金調達のトピックを発信中。</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== フッター ===== -->
+<footer>
+    <div class="footer-inner">
+        <div>
+            <div class="footer-brand">
+                <div class="footer-brand-name">株式会社87パートナーズ</div>
+                <div class="footer-tagline">企業の「次の一手」を、小さく速く、確実に。</div>
+            </div>
+            <div style="font-size:0.82rem; color:#666; margin-top:12px;">
+                〒251-0037 神奈川県藤沢市鵠沼海岸4丁目2番11号<br>
+                <a href="mailto:info@87partners.com" style="color:#888;">info@87partners.com</a>
+            </div>
+        </div>
+        <nav class="footer-nav">
+            <a href="index.html#services">事業内容</a>
+            <a href="index.html#value">提供価値</a>
+            <a href="ai-team.html">AIエージェントチーム</a>
+            <a href="news.html">ニュース・コラム</a>
+            <a href="index.html#company">会社概要</a>
+            <a href="index.html#contact">お問い合わせ</a>
+        </nav>
+    </div>
+    <p class="footer-copy">
+        &copy; 2026 87 Partners Inc. All Rights Reserved.
+    </p>
+</footer>
+
+<script>
+    // ナビ開閉
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+
+    // ニュース空状態の自動表示制御
+    (function() {
+        const list = document.getElementById('newsList');
+        const empty = document.getElementById('newsEmpty');
+        const hasItems = list && list.querySelectorAll('.news-item').length > 0;
+        if (empty) empty.style.display = hasItems ? 'none' : 'block';
+    })();
+
+    // カテゴリフィルタ
+    document.querySelectorAll('.news-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filter = btn.dataset.filter;
+            document.querySelectorAll('.news-filter-btn').forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+
+            document.querySelectorAll('.news-item').forEach(item => {
+                if (filter === 'all') {
+                    item.style.display = '';
+                } else {
+                    const cat = item.querySelector('.news-category');
+                    const hasCat = cat && cat.classList.contains('news-category--' + filter);
+                    item.style.display = hasCat ? '' : 'none';
+                }
+            });
+
+            // 空状態の再判定
+            const visibleItems = Array.from(document.querySelectorAll('.news-item')).filter(i => i.style.display !== 'none');
+            const empty = document.getElementById('newsEmpty');
+            if (empty) empty.style.display = visibleItems.length > 0 ? 'none' : 'block';
+        });
+    });
+</script>
+
+</body>
+</html>
