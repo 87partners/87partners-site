@@ -54,6 +54,33 @@
         .container { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
         section { padding: 96px 0; }
 
+        /* ===== 開業準備中バナー ===== */
+        .pre-launch-notice {
+            background: #fef9ed;
+            color: #8b6914;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 0.87rem;
+            border-bottom: 1px solid #f0e4bc;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        .pre-launch-notice strong {
+            color: #6b4f0d;
+            font-weight: 700;
+        }
+        .pre-launch-notice .divider {
+            color: #c9a94a;
+            margin: 0 8px;
+        }
+        @media (max-width: 768px) {
+            .pre-launch-notice {
+                font-size: 0.78rem;
+                padding: 8px 14px;
+            }
+            .pre-launch-notice .divider { display: block; height: 2px; }
+        }
+
         /* ===== ナビゲーション ===== */
         nav {
             position: sticky;
@@ -792,6 +819,11 @@
 </head>
 <body>
 
+<!-- ===== 開業準備中バナー ===== -->
+<div class="pre-launch-notice">
+    🚧 <strong>2026年7月 事業開始予定</strong><span class="divider">｜</span>現在は開業準備中のため、ご相談受付は7月1日以降となります
+</div>
+
 <!-- ===== ナビゲーション ===== -->
 <nav>
     <div class="nav-inner">
@@ -1090,7 +1122,7 @@
         </div>
         <p class="contact-intro">
             ご相談やご依頼は、以下のフォームよりお気軽にご連絡ください。<br>
-            原則1営業日以内に返信いたします。
+            <strong style="color:#8b6914;">※ 現在は開業準備中のため、2026年7月1日以降に順次ご連絡いたします。</strong>
         </p>
         <div class="contact-box">
             <form action="https://api.web3forms.com/submit" method="POST">
