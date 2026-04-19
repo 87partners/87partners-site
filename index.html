@@ -26,15 +26,15 @@
         /* ===== リセット・ベース ===== */
         *, *::before, *::after { box-sizing: border-box; }
         :root {
-            --primary: #0056b3;
-            --primary-dark: #003d82;
-            --primary-light: #e8f0fb;
+            --primary: #2D8B6D;
+            --primary-dark: #1F6B50;
+            --primary-light: #e8f5ef;
             --accent: #e8a020;
             --text: #1a1a2e;
             --text-light: #555;
             --bg: #fff;
-            --bg-light: #f7f9fc;
-            --border: #e2e8f0;
+            --bg-light: #f7faf8;
+            --border: #e0eae5;
             --radius: 12px;
             --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
             --shadow-md: 0 4px 24px rgba(0,0,0,0.08);
@@ -115,7 +115,7 @@
 
         /* ===== ヒーロー ===== */
         .hero {
-            background: linear-gradient(135deg, #f0f5ff 0%, #e8f0fb 50%, #f7f9fc 100%);
+            background: linear-gradient(135deg, #eef7f2 0%, #e8f5ef 50%, #f7faf8 100%);
             padding: 120px 28px 100px;
             text-align: center;
             position: relative;
@@ -126,7 +126,7 @@
             position: absolute;
             top: -60px; right: -80px;
             width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(0,86,179,0.06) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(45,139,109,0.06) 0%, transparent 70%);
             border-radius: 50%;
         }
         .hero-eyebrow {
@@ -177,11 +177,11 @@
             text-decoration: none;
             border-radius: 8px;
             transition: all 0.2s;
-            box-shadow: 0 4px 16px rgba(0,86,179,0.3);
+            box-shadow: 0 4px 16px rgba(45,139,109,0.3);
             cursor: pointer;
             border: none;
         }
-        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,86,179,0.35); }
+        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,139,109,0.35); }
         .btn-outline {
             background: transparent;
             color: var(--primary);
@@ -339,7 +339,7 @@
         .profile-photo-placeholder {
             width: 100%;
             aspect-ratio: 3/4;
-            background: linear-gradient(135deg, #e8f0fb, #c5d8f5);
+            background: linear-gradient(135deg, #e8f5ef, #b5d9c7);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -465,7 +465,7 @@
         .form-group select:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0,86,179,0.08);
+            box-shadow: 0 0 0 3px rgba(45,139,109,0.08);
         }
         .form-group textarea { height: 160px; resize: vertical; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
