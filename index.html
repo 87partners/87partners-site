@@ -165,43 +165,30 @@
             justify-content: center;
             flex-wrap: wrap;
         }
+        /* ===== ボタン（全CTA統一スタイル：アウトライン基調＋ホバーで塗り反転） ===== */
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--primary);
-            color: #fff;
+            background: transparent;
+            color: var(--primary);
             padding: 16px 44px;
             font-size: 1.05rem;
             font-weight: 700;
             text-decoration: none;
+            border: 2px solid var(--primary);
             border-radius: 8px;
             transition: all 0.2s;
-            box-shadow: 0 4px 16px rgba(45,139,109,0.3);
+            box-shadow: none;
             cursor: pointer;
-            border: none;
         }
-        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,139,109,0.35); }
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            box-shadow: none;
-        }
-        .btn-outline:hover { background: var(--primary-light); transform: translateY(-2px); box-shadow: none; }
-        .btn-ai {
-            background: var(--primary-light);
-            color: var(--primary-dark);
-            border: 1px solid transparent;
-            box-shadow: none;
-            font-weight: 700;
-        }
-        .btn-ai:hover {
-            background: #d8ebe0;
-            color: var(--primary-dark);
+        .btn:hover {
+            background: var(--primary);
+            color: #fff;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(45,139,109,0.18);
+            box-shadow: 0 6px 20px rgba(45,139,109,0.3);
         }
+        /* .btn-outline / .btn-ai は後方互換のためクラス名を残存（追加スタイルなし） */
 
         /* ===== セクション見出し共通 ===== */
         .section-header { text-align: center; margin-bottom: 60px; }

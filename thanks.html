@@ -65,16 +65,22 @@
         }
         a.btn {
             display: inline-block;
-            background: #2D8B6D;
-            color: #fff;
+            background: transparent;
+            color: #2D8B6D;
             padding: 14px 40px;
+            border: 2px solid #2D8B6D;
             border-radius: 8px;
             font-weight: 700;
             font-size: 0.97rem;
             text-decoration: none;
-            transition: background 0.2s;
+            transition: all 0.2s;
         }
-        a.btn:hover { background: #1F6B50; }
+        a.btn:hover {
+            background: #2D8B6D;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45,139,109,0.3);
+        }
     </style>
 </head>
 <body>
