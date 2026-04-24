@@ -767,6 +767,116 @@
             color: #7dc8a9;
         }
 
+        /* ===== ヒーロー AIリンク ===== */
+        .hero-ai-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 28px;
+            font-size: 0.88rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .hero-ai-link:hover { color: var(--primary); }
+        .hero-ai-badge {
+            background: var(--primary);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.05em;
+        }
+
+        /* ===== サービス AIリンク ===== */
+        .services-ai-link {
+            text-align: center;
+            margin-top: 36px;
+        }
+        .services-ai-link a {
+            font-size: 0.92rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid var(--primary-light);
+            padding-bottom: 2px;
+            transition: border-color 0.2s;
+        }
+        .services-ai-link a:hover { border-color: var(--primary); }
+
+        /* ===== AIチームティザー ===== */
+        .ai-teaser-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0d2240 100%);
+            padding: 80px 0;
+        }
+        .ai-teaser-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+        .ai-teaser-section .section-eyebrow { color: #2D8B6D; }
+        .ai-teaser-section .section-title { color: #fff; }
+        .ai-teaser-section .section-desc { color: rgba(255,255,255,0.6); }
+        .ai-teaser-section .btn {
+            background: #fff;
+            color: var(--primary);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            white-space: nowrap;
+        }
+        .ai-teaser-section .btn:hover { background: var(--primary-light); }
+
+        .ai-teaser-strip {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+        }
+        .ai-teaser-card {
+            text-decoration: none;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .ai-teaser-card:hover { transform: translateY(-4px); }
+        .ai-teaser-img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            background: rgba(255,255,255,0.08);
+        }
+        .ai-teaser-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+        .ai-teaser-img--more {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #fff;
+            background: rgba(0,86,179,0.5);
+            border: 2px dashed rgba(255,255,255,0.3);
+        }
+        .ai-teaser-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+        .ai-teaser-role {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+        }
+        .ai-teaser-more .ai-teaser-name { color: rgba(255,255,255,0.8); }
+        .ai-teaser-more .ai-teaser-role { color: #2D8B6D; font-weight: 600; }
+
         /* ===== スマホ対応 ===== */
         @media (max-width: 768px) {
             section { padding: 72px 0; }
@@ -791,6 +901,8 @@
             .target-grid { grid-template-columns: 1fr; gap: 16px; }
             .services-grid { grid-template-columns: 1fr; gap: 20px; }
             .value-grid { grid-template-columns: 1fr; }
+            .ai-teaser-header { flex-direction: column; }
+            .ai-teaser-strip { grid-template-columns: repeat(3, 1fr); gap: 12px; }
             .profile-inner { grid-template-columns: 1fr; gap: 32px; }
             .profile-photo { max-width: 220px; }
             .contact-box { padding: 36px 24px; }
@@ -860,6 +972,10 @@
             <a href="#services" class="btn btn-outline">📋 サービスを見る</a>
             <a href="ai-team.html" class="btn btn-ai">🤖 AIチームを見る</a>
         </div>
+        <a href="ai-team.html" class="hero-ai-link">
+            <span class="hero-ai-badge">AI</span>
+            専門AIエージェントチームが支援 — 9名のメンバーを見る →
+        </a>
     </div>
 </section>
 
@@ -933,6 +1049,55 @@
                 <h3>M&A・事業承継支援</h3>
                 <p>後継者不在の中小企業に対し、M&Aマッチングから成約後の経営統合（PMI）まで一貫して支援します。</p>
             </div>
+        </div>
+        <div class="services-ai-link">
+            <a href="ai-team.html">これらのサービスを支える、9名のAIエージェントチームを見る →</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== AIチームティザー ===== -->
+<section class="ai-teaser-section">
+    <div class="container">
+        <div class="ai-teaser-header">
+            <div>
+                <p class="section-eyebrow">AI Agent Team</p>
+                <h2 class="section-title" style="text-align:left;">9名のAIエージェントが、<br>あなたの経営を支援する。</h2>
+                <p class="section-desc" style="text-align:left; margin-bottom:0;">財務・法務・マーケティングなど各領域の専門AIが、代表・荒波修とともに課題解決にあたります。</p>
+            </div>
+            <a href="ai-team.html" class="btn" style="flex-shrink:0; align-self:center;">チームを見る →</a>
+        </div>
+        <div class="ai-teaser-strip">
+            <a href="ai-team.html" class="ai-teaser-card">
+                <div class="ai-teaser-img"><img src="assets/profile/CFO_アキラ.png" alt="アキラ CFO"></div>
+                <div class="ai-teaser-name">アキラ</div>
+                <div class="ai-teaser-role">CFO</div>
+            </a>
+            <a href="ai-team.html" class="ai-teaser-card">
+                <div class="ai-teaser-img"><img src="assets/profile/CMO_ナナ.png" alt="ナナ CMO"></div>
+                <div class="ai-teaser-name">ナナ</div>
+                <div class="ai-teaser-role">CMO</div>
+            </a>
+            <a href="ai-team.html" class="ai-teaser-card">
+                <div class="ai-teaser-img"><img src="assets/profile/CTO_コウ.png" alt="コウ CTO"></div>
+                <div class="ai-teaser-name">コウ</div>
+                <div class="ai-teaser-role">CTO</div>
+            </a>
+            <a href="ai-team.html" class="ai-teaser-card">
+                <div class="ai-teaser-img"><img src="assets/profile/CPO_ノア.png" alt="ノア CPO"></div>
+                <div class="ai-teaser-name">ノア</div>
+                <div class="ai-teaser-role">CPO</div>
+            </a>
+            <a href="ai-team.html" class="ai-teaser-card">
+                <div class="ai-teaser-img"><img src="assets/profile/CIO_シン.png" alt="シン CIO"></div>
+                <div class="ai-teaser-name">シン</div>
+                <div class="ai-teaser-role">CIO</div>
+            </a>
+            <a href="ai-team.html" class="ai-teaser-card ai-teaser-more">
+                <div class="ai-teaser-img ai-teaser-img--more">+4</div>
+                <div class="ai-teaser-name">他4名</div>
+                <div class="ai-teaser-role">を見る →</div>
+            </a>
         </div>
     </div>
 </section>
