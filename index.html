@@ -1101,6 +1101,19 @@
             .nav-toggle { display: block; }
             .hero h1 { font-size: 2rem; }
             .hero-sub { font-size: 1rem; }
+            /* モバイル：CTA 3ボタンを全幅統一・1行表示 */
+            .hero-cta {
+                gap: 12px;
+                padding: 0 4px;
+            }
+            .hero-cta .btn {
+                min-width: 0;
+                width: 100%;
+                max-width: 360px;
+                padding: 14px 20px;
+                font-size: 0.98rem;
+                white-space: nowrap;
+            }
             .target-grid { grid-template-columns: 1fr; gap: 16px; }
             .services-grid { grid-template-columns: 1fr; gap: 20px; }
             .value-grid { grid-template-columns: 1fr; }
