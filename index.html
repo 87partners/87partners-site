@@ -259,11 +259,22 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-        .trust-bar-bio--highlight {
-            padding-top: 12px;
-            border-top: 1px dashed var(--brand-primary-light);
-            margin-top: 4px;
+        .trust-bar-highlight-wrap {
             width: 100%;
+            padding-top: 14px;
+            margin-top: 4px;
+            border-top: 1px dashed var(--brand-primary-light);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .trust-bar-bio--highlight {
+            width: 100%;
+        }
+        .trust-bar-bio--list .trust-bar-bio-text {
+            font-weight: 500 !important;
+            color: var(--text-primary) !important;
+            font-size: 0.9rem;
         }
         .trust-bar-label {
             display: inline-block;
@@ -1183,10 +1194,16 @@
             <span class="trust-bar-label">代表略歴</span>
             <span class="trust-bar-bio-text">ヤフー株式会社(現LINEヤフー) 執行役員 マーケティングカンパニー長 ／ GYAO 代表取締役 ／ ソウルドアウト 代表取締役 を歴任</span>
         </p>
-        <p class="trust-bar-bio trust-bar-bio--highlight">
-            <span class="trust-bar-label trust-bar-label--accent">実績ハイライト</span>
-            <span class="trust-bar-bio-text">東証プライム市場（旧東証一部）上場企業 代表取締役社長CEO経験 ／ M&amp;A 4件・TOB 2件・PMI 3件 をリード</span>
-        </p>
+        <div class="trust-bar-highlight-wrap">
+            <p class="trust-bar-bio trust-bar-bio--highlight">
+                <span class="trust-bar-label trust-bar-label--accent">実績ハイライト</span>
+                <span class="trust-bar-bio-text">東証プライム市場（旧東証一部）上場企業 代表取締役社長CEO経験 ／ M&amp;A 4件・TOB 2件・PMI 3件 をリード</span>
+            </p>
+            <p class="trust-bar-bio trust-bar-bio--highlight trust-bar-bio--list">
+                <span class="trust-bar-label trust-bar-label--accent">取締役歴任</span>
+                <span class="trust-bar-bio-text">バリューコマース（東証プライム）／ IDCフロンティア ／ CRITEO（仏系広告DSP）／ シナジーマーケティング ／ ヤフーカスタマーリレーションズ 等</span>
+            </p>
+        </div>
         <ul class="trust-bar-stats">
             <li>
                 <strong>10<span class="unit">年+</span></strong>
@@ -1197,8 +1214,8 @@
                 <span class="label">経営責任者歴任</span>
             </li>
             <li>
-                <strong>50<span class="unit">+</span></strong>
-                <span class="label">事業関与</span>
+                <strong>5<span class="unit">社+</span></strong>
+                <span class="label">取締役歴任</span>
             </li>
         </ul>
     </div>
