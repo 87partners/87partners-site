@@ -249,7 +249,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 14px;
         }
         .trust-bar-bio {
             display: flex;
@@ -258,6 +258,12 @@
             margin: 0;
             flex-wrap: wrap;
             justify-content: center;
+        }
+        .trust-bar-bio--highlight {
+            padding-top: 12px;
+            border-top: 1px dashed var(--brand-primary-light);
+            margin-top: 4px;
+            width: 100%;
         }
         .trust-bar-label {
             display: inline-block;
@@ -268,12 +274,21 @@
             letter-spacing: 0.08em;
             padding: 4px 12px;
             border-radius: 4px;
+            white-space: nowrap;
+        }
+        .trust-bar-label--accent {
+            background: #14251d;
+            color: var(--text-inverse);
         }
         .trust-bar-bio-text {
             color: var(--text-primary);
             font-size: 0.95rem;
             font-weight: 500;
             line-height: 1.6;
+        }
+        .trust-bar-bio--highlight .trust-bar-bio-text {
+            font-weight: 600;
+            color: #14251d;
         }
         .trust-bar-stats {
             list-style: none;
@@ -311,7 +326,9 @@
         }
         @media (max-width: 768px) {
             .trust-bar { padding: 24px 0; }
-            .trust-bar-bio-text { font-size: 0.85rem; text-align: center; }
+            .trust-bar-bio { gap: 10px; }
+            .trust-bar-bio-text { font-size: 0.83rem; text-align: center; }
+            .trust-bar-bio--highlight { padding-top: 10px; }
             .trust-bar-stats { gap: 28px; }
             .trust-bar-stats strong { font-size: 1.5rem; }
         }
@@ -1159,12 +1176,16 @@
     </div>
 </section>
 
-<!-- ===== 信頼要素バー（テキスト型・代表略歴） ===== -->
+<!-- ===== 信頼要素バー（テキスト型・代表略歴＋実績ハイライト） ===== -->
 <section class="trust-bar" aria-label="代表者の信頼要素">
     <div class="container">
         <p class="trust-bar-bio">
             <span class="trust-bar-label">代表略歴</span>
             <span class="trust-bar-bio-text">ヤフー株式会社(現LINEヤフー) 執行役員 マーケティングカンパニー長 ／ GYAO 代表取締役 ／ ソウルドアウト 代表取締役 を歴任</span>
+        </p>
+        <p class="trust-bar-bio trust-bar-bio--highlight">
+            <span class="trust-bar-label trust-bar-label--accent">実績ハイライト</span>
+            <span class="trust-bar-bio-text">東証プライム市場（旧東証一部）上場企業 代表取締役社長CEO経験 ／ M&amp;A 4件・TOB 2件・PMI 3件 をリード</span>
         </p>
         <ul class="trust-bar-stats">
             <li>
