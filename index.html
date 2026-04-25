@@ -648,6 +648,39 @@
             font-size: 0.9rem;
         }
 
+        /* 商号セル：社名の由来リンク */
+        .company-name-origin-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-left: 12px;
+            padding: 4px 12px;
+            background: var(--brand-primary-light);
+            color: var(--brand-primary);
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 9999px;
+            border: 1px solid transparent;
+            transition: background 0.2s, border-color 0.2s, transform 0.15s;
+            white-space: nowrap;
+        }
+        .company-name-origin-link:hover {
+            background: var(--brand-primary);
+            color: var(--text-inverse);
+            border-color: var(--brand-primary);
+            transform: translateY(-1px);
+        }
+        .company-name-origin-link svg { display: inline-block; }
+        .company-name-origin-x-icon { opacity: 0.85; }
+        @media (max-width: 768px) {
+            .company-name-origin-link {
+                margin-left: 0;
+                margin-top: 8px;
+                font-size: 0.75rem;
+            }
+        }
+
         /* ===== お問い合わせ ===== */
         .contact-section { background: #fff; }
         .contact-intro {
@@ -1505,7 +1538,14 @@
         <table class="company-info">
             <tr>
                 <th>商号</th>
-                <td>株式会社87パートナーズ（英語表記：87 Partners Inc.）</td>
+                <td>
+                    株式会社87パートナーズ（英語表記：87 Partners Inc.）
+                    <a href="https://x.com/osamu_aranami/status/2046526190077546559" target="_blank" rel="noopener noreferrer" class="company-name-origin-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        社名の由来について
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="company-name-origin-x-icon"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L2.25 2.25h6.84l4.26 5.632 5.894-5.632Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </td>
             </tr>
             <tr>
                 <th>設立</th>
