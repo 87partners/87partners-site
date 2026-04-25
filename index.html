@@ -36,13 +36,39 @@
         /* ===== リセット・ベース ===== */
         *, *::before, *::after { box-sizing: border-box; }
         :root {
-            --primary: #2D8B6D;
-            --primary-dark: #1F6B50;
-            --primary-light: #e8f5ef;
-            --accent: #e8a020;
+            /* === DESIGN.md 由来トークン（マスター） === */
+            /* Brand */
+            --brand-primary: #2D8B6D;
+            --brand-primary-hover: #247058;
+            --brand-primary-light: #E8F4F0;
+            /* Text */
+            --text-primary: #2A2A2A;
+            --text-secondary: #5B7A95;
+            --text-inverse: #FFFFFF;
+            /* Surface */
+            --surface-default: #FFFFFF;
+            --surface-muted: #F5F5F5;
+            --surface-emphasis: #E8F4F0;
+            /* Border */
+            --border-default: #D0D0D0;
+            --border-strong: #A8A8A8;
+            /* State */
+            --state-warning: #E8A020;
+            --state-warning-light: #F0B84F;
+            --state-error: #C0392B;
+            --state-info: #5B7A95;
+            /* Shadows */
+            --shadow-card: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-modal: 0 4px 12px rgba(0,0,0,0.12);
+
+            /* === 後方互換エイリアス（既存スタイル維持） === */
+            --primary: var(--brand-primary);
+            --primary-dark: var(--brand-primary-hover);
+            --primary-light: var(--brand-primary-light);
+            --accent: var(--state-warning);
             --text: #14251d;
             --text-light: #555;
-            --bg: #fff;
+            --bg: var(--surface-default);
             --bg-light: #f7faf8;
             --border: #e0eae5;
             --radius: 12px;
@@ -201,6 +227,173 @@
             gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
+        }
+        .hero-cta-note {
+            margin: 16px auto 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.05em;
+        }
+        .hero-cta-note::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--brand-primary);
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        /* ===== 信頼要素バー（テキスト型） ===== */
+        .trust-bar {
+            background: var(--surface-default);
+            border-bottom: 1px solid var(--brand-primary-light);
+            padding: 32px 0;
+        }
+        .trust-bar .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+        .trust-bar-bio {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .trust-bar-highlight-wrap {
+            width: 100%;
+            padding-top: 14px;
+            margin-top: 4px;
+            border-top: 1px dashed var(--brand-primary-light);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .trust-bar-bio--highlight {
+            width: 100%;
+        }
+        .trust-bar-bio--list .trust-bar-bio-text {
+            font-weight: 500 !important;
+            color: var(--text-primary) !important;
+            font-size: 0.9rem;
+        }
+        .trust-bar-label {
+            display: inline-block;
+            background: var(--brand-primary);
+            color: var(--text-inverse);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            padding: 4px 12px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .trust-bar-label--accent {
+            background: #14251d;
+            color: var(--text-inverse);
+        }
+        .trust-bar-bio-text {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        .trust-bar-bio--highlight .trust-bar-bio-text {
+            font-weight: 600;
+            color: #14251d;
+        }
+        .trust-bar-stats {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 56px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .trust-bar-stats li {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+        .trust-bar-stats strong {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--brand-primary);
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+        .trust-bar-stats .unit {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-left: 2px;
+        }
+        .trust-bar-stats .label {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            letter-spacing: 0.06em;
+        }
+        @media (max-width: 768px) {
+            .trust-bar { padding: 24px 0; }
+            .trust-bar-bio { gap: 10px; }
+            .trust-bar-bio-text { font-size: 0.83rem; text-align: center; }
+            .trust-bar-bio--highlight { padding-top: 10px; }
+            .trust-bar-stats { gap: 28px; }
+            .trust-bar-stats strong { font-size: 1.5rem; }
+        }
+
+        /* ===== 追従CTA（フローティング） ===== */
+        .floating-cta {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 200;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--brand-primary);
+            color: var(--text-inverse);
+            padding: 14px 22px;
+            border-radius: 9999px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(45,139,109,0.35);
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+        }
+        .floating-cta.is-visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .floating-cta:hover {
+            background: var(--brand-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(45,139,109,0.45);
+        }
+        .floating-cta svg {
+            width: 18px;
+            height: 18px;
+        }
+        @media (max-width: 768px) {
+            .floating-cta {
+                right: 16px;
+                bottom: 16px;
+                padding: 12px 18px;
+                font-size: 0.85rem;
+            }
+            .floating-cta .floating-cta-text-long { display: none; }
         }
         /* ===== ボタン（全CTA統一スタイル：アウトライン基調＋ホバーで塗り反転） ===== */
         .btn {
@@ -943,7 +1136,7 @@
 
 <!-- ===== 開業準備中バナー ===== -->
 <div class="pre-launch-notice">
-    🚧 <strong>2026年7月 事業開始予定</strong><span class="divider">｜</span>現在は開業準備中のため、ご相談受付は7月1日以降となります
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="16" height="16" style="vertical-align:-3px;margin-right:6px;"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg><strong>2026年7月 事業開始予定</strong><span class="divider">｜</span>現在は開業準備中のため、ご相談受付は7月1日以降となります
 </div>
 
 <!-- ===== ナビゲーション ===== -->
@@ -974,18 +1167,63 @@
         <p class="hero-eyebrow">経営支援 ／ AI活用 ／ M&A支援</p>
         <h1>企業の「次の一手」を、<br><em>小さく速く</em>、確実に。</h1>
         <p class="hero-sub">
-            豊富な経営経験と最新のAI活用を組み合わせ、<br>
-            企業の経営課題を共に解決するパートナーです。
+            代表自らがバーチャルCxOチームと共に伴走。<br>
+            大手コンサルでは難しい、小回りの効くスピードと価格で、<br>
+            経営の難問に答えを出します。
         </p>
         <div class="hero-cta">
-            <a href="#contact" class="btn">💬 無料相談を申し込む</a>
-            <a href="#services" class="btn btn-outline">📋 サービスを見る</a>
-            <a href="ai-team.html" class="btn btn-ai">🤖 AIチームを見る</a>
+            <a href="#contact" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="20" height="20"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                30分の無料相談を申し込む
+            </a>
+            <a href="#services" class="btn btn-outline">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                サービス内容を見る
+            </a>
+            <a href="ai-team.html" class="btn btn-ai">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="20" height="20"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>
+                AIチームを見る
+            </a>
         </div>
+        <p class="hero-cta-note">相談無料 ／ 24時間以内にご返信</p>
         <a href="ai-team.html" class="hero-ai-link">
             <span class="hero-ai-badge">AI</span>
             専門AIエージェントチームが支援 — 9名のメンバーを見る →
         </a>
+    </div>
+</section>
+
+<!-- ===== 信頼要素バー（テキスト型・代表略歴＋実績ハイライト） ===== -->
+<section class="trust-bar" aria-label="代表者の信頼要素">
+    <div class="container">
+        <p class="trust-bar-bio">
+            <span class="trust-bar-label">代表略歴</span>
+            <span class="trust-bar-bio-text">ヤフー株式会社(現LINEヤフー) 執行役員 マーケティングカンパニー長 ／ GYAO 代表取締役 ／ ソウルドアウト 代表取締役 を歴任</span>
+        </p>
+        <div class="trust-bar-highlight-wrap">
+            <p class="trust-bar-bio trust-bar-bio--highlight">
+                <span class="trust-bar-label trust-bar-label--accent">実績ハイライト</span>
+                <span class="trust-bar-bio-text">東証プライム市場（旧東証一部）上場企業 代表取締役社長CEO経験 ／ M&amp;A 4件・TOB 2件・PMI 3件 をリード</span>
+            </p>
+            <p class="trust-bar-bio trust-bar-bio--highlight trust-bar-bio--list">
+                <span class="trust-bar-label trust-bar-label--accent">取締役歴任</span>
+                <span class="trust-bar-bio-text">バリューコマース（東証プライム）／ IDCフロンティア ／ CRITEO（仏系広告DSP）／ シナジーマーケティング 等</span>
+            </p>
+        </div>
+        <ul class="trust-bar-stats">
+            <li>
+                <strong>10<span class="unit">年+</span></strong>
+                <span class="label">社長業経験</span>
+            </li>
+            <li>
+                <strong>3<span class="unit">社</span></strong>
+                <span class="label">経営責任者歴任</span>
+            </li>
+            <li>
+                <strong>5<span class="unit">社+</span></strong>
+                <span class="label">取締役歴任</span>
+            </li>
+        </ul>
     </div>
 </section>
 
@@ -1270,7 +1508,7 @@
             </tr>
             <tr>
                 <th>本店所在地</th>
-                <td>〒251-0037 神奈川県藤沢市鵠沼海岸4丁目2番11号</td>
+                <td>神奈川県藤沢市</td>
             </tr>
             <tr>
                 <th>連絡先</th>
@@ -1357,7 +1595,7 @@
                 <div class="footer-tagline">企業の「次の一手」を、小さく速く、確実に。</div>
             </div>
             <div style="font-size:0.82rem; color:#666; margin-top:12px;">
-                〒251-0037 神奈川県藤沢市鵠沼海岸4丁目2番11号<br>
+                神奈川県藤沢市<br>
                 <a href="mailto:info@87partners.com" style="color:#888;">info@87partners.com</a>
             </div>
             <div class="footer-social" style="margin-top:20px;">
@@ -1375,13 +1613,19 @@
                 <button onclick="scrollToSection('profile')">代表者紹介</button>
                 <button onclick="scrollToSection('company')">会社概要</button>
                 <button onclick="scrollToSection('contact')">お問い合わせ</button>
-                <a href="ai-team.html" class="footer-nav-ai">🤖 AIチーム</a>
-                <a href="news.html" class="footer-nav-ai">📰 ニュース・コラム</a>
+                <a href="ai-team.html" class="footer-nav-ai"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14" style="vertical-align:-2px;margin-right:4px;"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/></svg>AIチーム</a>
+                <a href="news.html" class="footer-nav-ai"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14" style="vertical-align:-2px;margin-right:4px;"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6z"/></svg>ニュース・コラム</a>
             </nav>
         </div>
     </div>
     <p class="footer-copy">&copy; 2026 87 Partners Inc. All Rights Reserved.</p>
 </footer>
+
+<!-- ===== 追従CTA（スクロール時表示） ===== -->
+<a href="#contact" class="floating-cta" id="floatingCta" aria-label="無料相談を申し込む">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span><span class="floating-cta-text-long">30分の</span>無料相談</span>
+</a>
 
 <script>
     // ナビゲーション：スマホ用トグル
@@ -1409,6 +1653,22 @@
             const offset = 64;
             window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
         }
+    }
+
+    // 追従CTA：ヒーロー領域を超えてスクロールしたら表示
+    const floatingCta = document.getElementById('floatingCta');
+    const heroEl = document.querySelector('.hero');
+    if (floatingCta && heroEl) {
+        const showThreshold = () => heroEl.offsetTop + heroEl.offsetHeight - 200;
+        const onScroll = () => {
+            if (window.scrollY > showThreshold()) {
+                floatingCta.classList.add('is-visible');
+            } else {
+                floatingCta.classList.remove('is-visible');
+            }
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
     }
 </script>
 
