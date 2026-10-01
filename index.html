@@ -25,6 +25,36 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://www.87partners.com/#organization",
+                "name": "株式会社87パートナーズ",
+                "alternateName": "87 Partners Inc.",
+                "url": "https://www.87partners.com/",
+                "logo": "https://www.87partners.com/assets/logo.png",
+                "email": "info@87partners.com",
+                "founder": { "@id": "https://www.87partners.com/#founder" }
+            },
+            {
+                "@type": "Person",
+                "@id": "https://www.87partners.com/#founder",
+                "name": "荒波 修",
+                "alternateName": "Osamu Aranami",
+                "jobTitle": "代表取締役",
+                "worksFor": { "@id": "https://www.87partners.com/#organization" },
+                "image": "https://www.87partners.com/assets/profile.jpg",
+                "sameAs": [
+                    "https://note.com/osamu_aranami",
+                    "https://x.com/osamu_aranami"
+                ]
+            }
+        ]
+    }
+    </script>
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NL2SCXBP0"></script>
     <script>
@@ -781,6 +811,9 @@
         }
         .profile-x {
             margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .profile-x-link {
             display: inline-flex;
@@ -1150,6 +1183,63 @@
             }
             table.company-info td { padding-top: 4px; }
         }
+        /* ===== 最新コラム（note 自動連携） ===== */
+        .column-section { background: #fff; border-top: 1px solid var(--border); }
+        .column-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .column-card {
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            color: var(--text);
+            text-decoration: none !important;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .column-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        .column-card-thumb {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1.91 / 1;
+            object-fit: cover;
+            display: block;
+            background: var(--bg-light);
+        }
+        .column-card-thumb--empty {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+        .column-card-body { padding: 18px 20px 22px; }
+        .column-card-date { font-size: 0.82rem; color: var(--text-light); }
+        .column-card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.6;
+            margin: 6px 0 0;
+        }
+        .column-more { text-align: center; margin-top: 40px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .column-more a {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 999px;
+            border: 1.5px solid var(--primary);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        .column-more a:hover { background: var(--primary-light); }
+        @media (max-width: 768px) {
+            .column-cards { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -1483,8 +1573,31 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L2.25 2.25h6.84l4.26 5.632 5.894-5.632Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                         @osamu_aranami でも発信中
                     </a>
+                    <a href="https://note.com/osamu_aranami" target="_blank" rel="noopener" class="profile-x-link" data-event="note_click" data-event-label="代表者紹介：note">
+                        <span aria-hidden="true" style="font-weight:800;">note</span>
+                        コラムを読む
+                    </a>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 最新コラム（note 自動連携） ===== -->
+<section id="column" class="column-section">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-eyebrow">Column</p>
+            <h2 class="section-title">最新コラム</h2>
+            <p class="section-desc">代表 荒波 修が、経営・AI・組織について note で発信しています。</p>
+        </div>
+        <div class="column-cards">
+            <!-- NOTE_LATEST:START（scripts/update-note-feed.mjs が自動生成。手で編集しない） -->
+            <!-- NOTE_LATEST:END -->
+        </div>
+        <div class="column-more">
+            <a href="news.html">コラム一覧へ</a>
+            <a href="https://note.com/osamu_aranami" target="_blank" rel="noopener" data-event="note_click" data-event-label="トップ：noteをフォロー">note をフォロー</a>
         </div>
     </div>
 </section>

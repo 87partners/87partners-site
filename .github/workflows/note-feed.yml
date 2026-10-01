@@ -1,0 +1,43 @@
+name: note記事の自動反映
+
+on:
+  schedule:
+    - cron: '0 21 * * *'   # 毎日 06:00 JST
+  workflow_dispatch:        # 手動実行（Actions タブから）
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/update-note-feed.mjs'
+      - '.github/workflows/note-feed.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: note-feed
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: note RSS を取得して HTML を更新
+        run: node scripts/update-note-feed.mjs
+
+      - name: 変更があればコミット
+        run: |
+          if git diff --quiet; then
+            echo "変更なし"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add news.html index.html sitemap.xml
+          git commit -m "chore(news): note の最新記事を反映"
+          git push
